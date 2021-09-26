@@ -33,13 +33,15 @@ namespace Game
             this.CloseButton = new System.Windows.Forms.Button();
             this.MatchIdTextField = new System.Windows.Forms.TextBox();
             this.MatchIdLable = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // CopyButton
             // 
-            this.CopyButton.Location = new System.Drawing.Point(527, 137);
+            this.CopyButton.Location = new System.Drawing.Point(461, 103);
+            this.CopyButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CopyButton.Name = "CopyButton";
-            this.CopyButton.Size = new System.Drawing.Size(102, 34);
+            this.CopyButton.Size = new System.Drawing.Size(89, 26);
             this.CopyButton.TabIndex = 8;
             this.CopyButton.Text = "Copy";
             this.CopyButton.UseVisualStyleBackColor = true;
@@ -47,9 +49,10 @@ namespace Game
             // 
             // CloseButton
             // 
-            this.CloseButton.Location = new System.Drawing.Point(326, 285);
+            this.CloseButton.Location = new System.Drawing.Point(285, 214);
+            this.CloseButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CloseButton.Name = "CloseButton";
-            this.CloseButton.Size = new System.Drawing.Size(79, 30);
+            this.CloseButton.Size = new System.Drawing.Size(69, 22);
             this.CloseButton.TabIndex = 7;
             this.CloseButton.Text = "Close";
             this.CloseButton.UseVisualStyleBackColor = true;
@@ -59,31 +62,42 @@ namespace Game
             // 
             this.MatchIdTextField.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.MatchIdTextField.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.MatchIdTextField.Location = new System.Drawing.Point(287, 137);
-            this.MatchIdTextField.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MatchIdTextField.Location = new System.Drawing.Point(251, 103);
             this.MatchIdTextField.Name = "MatchIdTextField";
-            this.MatchIdTextField.Size = new System.Drawing.Size(182, 34);
+            this.MatchIdTextField.Size = new System.Drawing.Size(160, 29);
             this.MatchIdTextField.TabIndex = 6;
             // 
             // MatchIdLable
             // 
             this.MatchIdLable.AutoSize = true;
-            this.MatchIdLable.Location = new System.Drawing.Point(172, 144);
+            this.MatchIdLable.Location = new System.Drawing.Point(150, 108);
             this.MatchIdLable.Name = "MatchIdLable";
-            this.MatchIdLable.Size = new System.Drawing.Size(69, 20);
+            this.MatchIdLable.Size = new System.Drawing.Size(55, 15);
             this.MatchIdLable.TabIndex = 5;
             this.MatchIdLable.Text = "Match ID";
             // 
-            // MatchId
+            // label1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(251, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(88, 37);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Status";
+            // 
+            // MatchIdForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(700, 338);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.CopyButton);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.MatchIdTextField);
             this.Controls.Add(this.MatchIdLable);
-            this.Name = "MatchId";
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Name = "MatchIdForm";
             this.Text = "MatchId";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -96,5 +110,6 @@ namespace Game
         private System.Windows.Forms.Button CloseButton;
         private System.Windows.Forms.TextBox MatchIdTextField;
         private System.Windows.Forms.Label MatchIdLable;
+        private System.Windows.Forms.Label label1;
     }
 }

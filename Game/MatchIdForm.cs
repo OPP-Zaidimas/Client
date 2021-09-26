@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Game.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,14 +8,56 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Input;
 
 namespace Game
 {
     public partial class MatchIdForm : Form
     {
-        public MatchIdForm()
+        private SignalRService _service;
+        private string message = "Connecting...";
+        public string MSG 
+        { 
+            get { return message; } 
+            set 
+            { 
+                message = value;
+                label1.Text = message;
+            } 
+        }
+        private int id = -1;
+        public MatchIdForm(SignalRService service)
         {
+            _service = service;
             InitializeComponent();
+            _service.MatchIdReceived += _service_MatchIdReceived;
+
+            _service.CreateNewGame();
+        }
+
+        private void _service_MatchIdReceived(int matchId)
+        {
+            id = matchId;
+            MSG = "Your match id is: " + matchId;
+        }
+
+        public static MatchIdForm ConnectedMatchIdForm(SignalRService service)
+        {
+            MatchIdForm matchIdForm = new MatchIdForm(service);
+
+            service.Connect().ContinueWith((task) =>
+            {
+                if (task.Exception != null)
+                {
+                    matchIdForm.MSG = "Failed to connect.";
+                }
+                else
+                {
+                    matchIdForm.MSG = "Successfully connected.";
+                }
+            });
+
+            return matchIdForm;
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
@@ -25,6 +68,11 @@ namespace Game
         private void CopyButton_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
