@@ -9,7 +9,15 @@ namespace Game
         {
             InitializeComponent();
 
-            ContentPanel.Controls.Add(new MainMenu());
+            SetContent(new MainMenu(this));
+        }
+
+        public void SetContent(UserControl control)
+        {
+            control.Dock = DockStyle.Fill;
+
+            ContentPanel.Controls.Clear();
+            ContentPanel.Controls.Add(control);
         }
     }
 }
