@@ -38,14 +38,15 @@ namespace Game
             this.ContentPanel.Location = new System.Drawing.Point(0, 0);
             this.ContentPanel.Margin = new System.Windows.Forms.Padding(2);
             this.ContentPanel.Name = "ContentPanel";
-            this.ContentPanel.Size = new System.Drawing.Size(840, 640);
+            this.ContentPanel.Size = new System.Drawing.Size(1040, 840);
             this.ContentPanel.TabIndex = 0;
             // 
             // GameWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(840, 640);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1040, 840);
             this.Controls.Add(this.ContentPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
