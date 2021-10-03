@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Game.Views.User_Controls
 {
-    public partial class ArenaView : UserControl
+    public partial class ArenaSide : UserControl
     {
-        public ArenaView()
+        public ArenaSide()
         {
             InitializeComponent();
         }

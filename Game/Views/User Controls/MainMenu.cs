@@ -5,7 +5,7 @@ namespace Game.Views.User_Controls
 {
     public partial class MainMenu : UserControl
     {
-        private GameWindow _window;
+        private readonly GameWindow _window;
 
         public MainMenu(GameWindow window)
         {
@@ -14,12 +14,9 @@ namespace Game.Views.User_Controls
             _window = window;
         }
 
-        private void NewGameButton_Click(object sender, EventArgs e) {
-
-
-            MatchIdForm openForm = new MatchIdForm();
-            //Form openForm = new Form();
-            openForm.Show();
+        private void NewGameButton_Click(object sender, EventArgs e)
+        {
+            new MatchIdForm().Show();
         }
 
         private void FindGameButton_Click(object sender, EventArgs e)
