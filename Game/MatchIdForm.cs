@@ -22,17 +22,21 @@ namespace Game
             set 
             { 
                 message = value;
-                label1.Text = message;
+                updateLabel();
             } 
         }
+        private void updateLabel()
+        {
+            MethodInvoker labelUpdate = delegate { label1.Text = message; };
+            this.Invoke(labelUpdate);
+        }
+        
         private int id = -1;
         public MatchIdForm(SignalRService service)
         {
             _service = service;
             InitializeComponent();
             _service.MatchIdReceived += _service_MatchIdReceived;
-
-            _service.CreateNewGame();
         }
 
         private void _service_MatchIdReceived(int matchId)
@@ -56,6 +60,7 @@ namespace Game
                     matchIdForm.MSG = "Successfully connected.";
                 }
             });
+            service.CreateNewGame();
 
             return matchIdForm;
         }
