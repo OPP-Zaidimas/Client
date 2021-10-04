@@ -66,6 +66,7 @@ namespace Game
             this.MatchIdTextField.Name = "MatchIdTextField";
             this.MatchIdTextField.Size = new System.Drawing.Size(160, 29);
             this.MatchIdTextField.TabIndex = 6;
+            this.MatchIdTextField.Text = "id";
             // 
             // MatchIdLable
             // 

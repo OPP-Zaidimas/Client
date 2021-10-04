@@ -41,10 +41,14 @@ namespace Game.Views.User_Controls
             this.NewGameStatusLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.FindGameStatusLabel = new System.Windows.Forms.Label();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.usernameInput = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.MainMenuLayoutPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // NewGameButton
@@ -124,6 +128,7 @@ namespace Game.Views.User_Controls
             this.MainMenuLayoutPanel.Controls.Add(this.tableLayoutPanel1, 0, 3);
             this.MainMenuLayoutPanel.Controls.Add(this.tableLayoutPanel2, 0, 2);
             this.MainMenuLayoutPanel.Controls.Add(this.tableLayoutPanel3, 0, 4);
+            this.MainMenuLayoutPanel.Controls.Add(this.tableLayoutPanel4, 0, 1);
             this.MainMenuLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainMenuLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.MainMenuLayoutPanel.Name = "MainMenuLayoutPanel";
@@ -232,6 +237,39 @@ namespace Game.Views.User_Controls
             this.FindGameStatusLabel.TabIndex = 2;
             this.FindGameStatusLabel.Text = "Press the Button to find a game";
             // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.5F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.5F));
+            this.tableLayoutPanel4.Controls.Add(this.usernameInput, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(292, 200);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(256, 28);
+            this.tableLayoutPanel4.TabIndex = 7;
+            // 
+            // usernameInput
+            // 
+            this.usernameInput.Location = new System.Drawing.Point(132, 3);
+            this.usernameInput.Name = "usernameInput";
+            this.usernameInput.Size = new System.Drawing.Size(121, 23);
+            this.usernameInput.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(4, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(122, 21);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Enter username:";
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -249,6 +287,8 @@ namespace Game.Views.User_Controls
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -267,5 +307,8 @@ namespace Game.Views.User_Controls
         private System.Windows.Forms.Label NewGameStatusLabel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label FindGameStatusLabel;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.TextBox usernameInput;
+        private System.Windows.Forms.Label label1;
     }
 }

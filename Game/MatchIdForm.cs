@@ -16,6 +16,7 @@ namespace Game
     {
         private SignalRService _service;
         private string message = "Connecting...";
+        private string _username;
         public string MSG 
         { 
             get { return message; } 
@@ -42,12 +43,15 @@ namespace Game
         private void _service_MatchIdReceived(int matchId)
         {
             id = matchId;
-            MSG = "Your match id is: " + matchId;
+            MSG = "Your match id is: ";
+            MethodInvoker textUpdate = delegate { MatchIdTextField.Text = "" + id; };
+            this.Invoke(textUpdate);
         }
 
-        public static MatchIdForm ConnectedMatchIdForm(SignalRService service)
+        public static MatchIdForm ConnectedMatchIdForm(SignalRService service, string username)
         {
             MatchIdForm matchIdForm = new MatchIdForm(service);
+            matchIdForm._username = username;
 
             service.Connect().ContinueWith((task) =>
             {
@@ -60,7 +64,13 @@ namespace Game
                     matchIdForm.MSG = "Successfully connected.";
                 }
             });
-            service.CreateNewGame();
+            service.CreateNewGame(matchIdForm._username).ContinueWith((task)=>
+            {
+                if(task.Exception != null)
+                {
+                    matchIdForm.MSG = "Failed to get id";
+                }
+            });
 
             return matchIdForm;
         }
@@ -72,7 +82,7 @@ namespace Game
 
         private void CopyButton_Click(object sender, EventArgs e)
         {
-            
+            Clipboard.SetText(MatchIdTextField.Text);
         }
 
         private void label1_Click(object sender, EventArgs e)
