@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using Game.Services.SignalR;
 using Microsoft.AspNetCore.SignalR.Client;
 
 namespace Game.Services
@@ -19,27 +17,29 @@ namespace Game.Services
         {
             _connection = connection;
 
-            _connection.On<int>("ReceiveCode", 
-                (code) => MatchIdReceived(code));
+            _connection.On<int>(NetworkCall.ReceiveCode,
+                code => MatchIdReceived?.Invoke(code));
 
-            _connection.On<string>("ReceiveFailure", 
-                (failureMsg) => OnGameJoinFailureReceived(failureMsg));
-            
-            _connection.On<string>("StartGame", 
-                (opponentUsername) => OnGameStartSignalReceived(opponentUsername));
+            _connection.On<string>(NetworkCall.ReceiveFailure,
+                failureMsg => OnGameJoinFailureReceived?.Invoke(failureMsg));
+
+            _connection.On<string>(NetworkCall.StartGame,
+                opponentUsername => OnGameStartSignalReceived?.Invoke(opponentUsername));
         }
 
         public async Task Connect()
         {
             await _connection.StartAsync();
         }
+
         public async Task CreateNewGame(string username)
         {
-            await _connection.SendAsync("CreateNewGame", username);
+            await _connection.SendAsync(NetworkCall.CreateGame, username);
         }
+
         public async Task JoinGame(int matchId, string username)
         {
-            await _connection.SendAsync("JoinGame", matchId, username);
+            await _connection.SendAsync(NetworkCall.JoinGame, matchId, username);
         }
     }
 }
