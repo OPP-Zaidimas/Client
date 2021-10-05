@@ -1,20 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Game.Models;
 
 namespace Game.Views.User_Controls
 {
     public partial class ArenaView : UserControl
     {
+        private readonly Deck _deck;
+
         public ArenaView()
         {
             InitializeComponent();
+
+            _deck = new Deck();
+        }
+
+        private void DrawCardButton_Click(object sender, EventArgs e)
+        {
+            var card = _deck.Draw();
+            //  Debug.WriteLine($"\n{card}");
+
+            HandView.AddCard(card);
         }
     }
 }

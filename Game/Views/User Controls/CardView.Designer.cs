@@ -105,11 +105,11 @@ namespace Game.Views.User_Controls
             // 
             this.TitleLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TitleLabel.AutoSize = true;
-            this.TitleLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.TitleLabel.Location = new System.Drawing.Point(97, 15);
+            this.TitleLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TitleLabel.Location = new System.Drawing.Point(105, 15);
             this.TitleLabel.Margin = new System.Windows.Forms.Padding(6, 10, 6, 5);
             this.TitleLabel.Name = "TitleLabel";
-            this.TitleLabel.Size = new System.Drawing.Size(57, 30);
+            this.TitleLabel.Size = new System.Drawing.Size(42, 21);
             this.TitleLabel.TabIndex = 1;
             this.TitleLabel.Text = "Title";
             // 
@@ -130,7 +130,7 @@ namespace Game.Views.User_Controls
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CardView";
             this.Size = new System.Drawing.Size(252, 288);
             this.tableLayoutPanel1.ResumeLayout(false);

@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using Game.ViewModels;
 using System.Windows.Forms;
 
 namespace Game.Views.User_Controls
@@ -15,6 +9,21 @@ namespace Game.Views.User_Controls
         public CardView()
         {
             InitializeComponent();
+        }
+
+        public CardView(CardViewModel viewModel)
+        {
+            InitializeComponent();
+
+            UpdateContent(viewModel);
+        }
+
+        public void UpdateContent(CardViewModel viewModel)
+        {
+            TitleLabel.Text = viewModel.Title;
+            DescriptionLabel.Text = viewModel.Description;
+            AtkLabel.Text = viewModel.Attack.ToString();
+            DefLabel.Text = viewModel.Defense.ToString();
         }
     }
 }
