@@ -1,6 +1,8 @@
 ﻿using Game.Services;
 using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using Game.Assets;
 using Game.Interfaces;
 
 namespace Game.Views.User_Controls
@@ -8,7 +10,8 @@ namespace Game.Views.User_Controls
     public partial class MainMenu : UserControl, IGameControlsCommands
     {
         private readonly GameWindow _window;
-        public SignalRService _service;
+        private readonly SignalRService _service;
+
         public MainMenu(SignalRService service, GameWindow window)
         {
             _service = service;
@@ -21,29 +24,22 @@ namespace Game.Views.User_Controls
 
         private void NewGameButton_Click(object sender, EventArgs e)
         {
-            MatchIdForm openForm = MatchIdForm.ConnectedMatchIdForm(_service, usernameInput.Text);
-            //Form openForm = new Form();
+            var openForm = MatchIdForm.ConnectedMatchIdForm(_service, usernameInput.Text);
             openForm.Show();
         }
 
         private void FindGameButton_Click(object sender, EventArgs e)
         {
-            _service.Connect().ContinueWith((task) =>
+            _service.Connect().ContinueWith(DisplayError);
+            _service.JoinGame(int.Parse(SessionIdInput.Text), usernameInput.Text).ContinueWith(DisplayError);
+        }
+
+        private static void DisplayError(Task task)
+        {
+            if (task.Exception != null)
             {
-                if (task.Exception != null)
-                {
-                    MessageBox.Show("Yeet nahui", "Gem nahui");
-                }
-            });
-            _service.JoinGame(int.Parse(SessionIdInput.Text), usernameInput.Text)
-                .ContinueWith((task) =>
-                {
-                    if (task.Exception != null)
-                    {
-                        MessageBox.Show("Yeet nahui v2", "Gem nahui");
-                    }
-                });
-            //
+                MessageBox.Show(Strings.ConnectionError);
+            }
         }
 
         private void ExitGameButton_Click(object sender, EventArgs e)
@@ -53,7 +49,7 @@ namespace Game.Views.User_Controls
 
         public void OnGameFailureReceived(string failureMsg)
         {
-            MessageBox.Show(failureMsg, "This gem just yeeted itself");
+            MessageBox.Show(failureMsg, Strings.GameJoinError);
         }
 
         public void OnGameStartReceived(string opponentUsername)
