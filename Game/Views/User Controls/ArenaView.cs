@@ -6,38 +6,27 @@ namespace Game.Views.User_Controls
 {
     public partial class ArenaView : UserControl
     {
-        private readonly Deck _deck;
-
-        private string HeroName
-        {
-            set
-            {
-                if (PlayerArenaSide.IsHandleCreated) PlayerArenaSide.updateLabel(value);
-            }
-        }
-
-        private string OpponentName
-        {
-            set
-            {
-                if (EnemyArenaSide.IsHandleCreated) EnemyArenaSide.updateLabel(value);
-            }
-        }
+        private readonly Deck _deck = new();
 
         public ArenaView()
         {
             InitializeComponent();
-
-            _deck = new Deck();
         }
 
-        public ArenaView(string heroName, string opponentName)
+        public ArenaView(string playerName, string enemyName)
         {
             InitializeComponent();
+
             PlayerArenaSide.CreateControl();
             EnemyArenaSide.CreateControl();
-            HeroName = heroName;
-            OpponentName = opponentName;
+
+            SetUsername(PlayerArenaSide, playerName);
+            SetUsername(EnemyArenaSide, enemyName);
+        }
+
+        private void SetUsername(ArenaSide arenaSide, string username)
+        {
+            if (arenaSide.IsHandleCreated) arenaSide.Username = username;
         }
 
         private void DrawCardButton_Click(object sender, EventArgs e)
