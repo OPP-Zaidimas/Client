@@ -19,7 +19,7 @@ namespace Game.Views.User_Controls
         private string OpponentName
         {
             set
-            {
+            {   
                 if (EnemyArenaSide.IsHandleCreated) EnemyArenaSide.updateLabel(value);
             }
         }
@@ -38,6 +38,7 @@ namespace Game.Views.User_Controls
             EnemyArenaSide.CreateControl();
             HeroName = heroName;
             OpponentName = opponentName;
+            _deck = new Deck();
         }
 
         private void DrawCardButton_Click(object sender, EventArgs e)
