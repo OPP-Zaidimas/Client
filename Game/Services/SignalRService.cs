@@ -13,14 +13,20 @@ namespace Game.Services
 
         public event Action<int> MatchIdReceived;
         public event Action<string> OnGameJoinFailureReceived;
+        public event Action<string> OnGameStartSignalReceived;
 
         public SignalRService(HubConnection connection)
         {
             _connection = connection;
 
-            _connection.On<int>("ReceiveCode", (code) => MatchIdReceived.Invoke(code));
+            _connection.On<int>("ReceiveCode", 
+                (code) => MatchIdReceived(code));
+
             _connection.On<string>("ReceiveFailure", 
-                (failureMsg) => OnGameJoinFailureReceived.Invoke(failureMsg));
+                (failureMsg) => OnGameJoinFailureReceived(failureMsg));
+            
+            _connection.On<string>("StartGame", 
+                (opponentUsername) => OnGameStartSignalReceived(opponentUsername));
         }
 
         public async Task Connect()

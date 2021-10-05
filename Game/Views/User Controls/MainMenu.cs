@@ -13,6 +13,7 @@ namespace Game.Views.User_Controls
         {
             _service = service;
             _service.OnGameJoinFailureReceived += OnGameFailureReceived;
+            _service.OnGameStartSignalReceived += OnGameStartReceived;
             InitializeComponent();
 
             _window = window;
@@ -42,7 +43,7 @@ namespace Game.Views.User_Controls
                         MessageBox.Show("Yeet nahui v2", "Gem nahui");
                     }
                 });
-            //_window.SetContent(new ArenaView());
+            //
         }
 
         private void ExitGameButton_Click(object sender, EventArgs e)
@@ -53,6 +54,11 @@ namespace Game.Views.User_Controls
         public void OnGameFailureReceived(string failureMsg)
         {
             MessageBox.Show(failureMsg, "This gem just yeeted itself");
+        }
+
+        public void OnGameStartReceived(string opponentUsername)
+        {
+            _window.SetContent(new ArenaView(usernameInput.Text, opponentUsername));
         }
     }
 }

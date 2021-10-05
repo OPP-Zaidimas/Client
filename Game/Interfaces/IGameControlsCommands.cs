@@ -9,5 +9,6 @@ namespace Game.Interfaces
     interface IGameControlsCommands
     {
         void OnGameFailureReceived(string failureMsg);
+        void OnGameStartReceived(string opponentUsername);
     }
 }
