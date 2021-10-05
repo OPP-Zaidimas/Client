@@ -33,6 +33,12 @@ namespace Game.Views.User_Controls
             }
         }
 
+        public void Remove(int i)
+        {
+            _cards[i] = null;
+            UpdateHand();
+        }
+
         public void UpdateHand()
         {
             HandLayoutPanel.Controls.Clear();
@@ -41,7 +47,9 @@ namespace Game.Views.User_Controls
                 var card = _cards[i];
                 if (card == null) continue;
 
-                HandLayoutPanel.Controls.Add(new CardInHandView(card), i, 0);
+                var cardView = new CardInHandView(card, this, i);
+
+                HandLayoutPanel.Controls.Add(cardView, i, 0);
             }
         }
     }

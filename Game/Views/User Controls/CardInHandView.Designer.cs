@@ -48,7 +48,7 @@ namespace Game.Views
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(211, 316);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(208, 316);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // PlaceButton
@@ -57,10 +57,11 @@ namespace Game.Views
             this.PlaceButton.Location = new System.Drawing.Point(2, 294);
             this.PlaceButton.Margin = new System.Windows.Forms.Padding(2);
             this.PlaceButton.Name = "PlaceButton";
-            this.PlaceButton.Size = new System.Drawing.Size(207, 20);
+            this.PlaceButton.Size = new System.Drawing.Size(204, 20);
             this.PlaceButton.TabIndex = 1;
             this.PlaceButton.Text = "Place";
             this.PlaceButton.UseVisualStyleBackColor = true;
+            this.PlaceButton.Click += new System.EventHandler(this.PlaceButton_Click);
             // 
             // CardView
             // 
@@ -68,7 +69,7 @@ namespace Game.Views
             this.CardView.Location = new System.Drawing.Point(2, 2);
             this.CardView.Margin = new System.Windows.Forms.Padding(2);
             this.CardView.Name = "CardView";
-            this.CardView.Size = new System.Drawing.Size(207, 288);
+            this.CardView.Size = new System.Drawing.Size(204, 288);
             this.CardView.TabIndex = 2;
             // 
             // CardInHandView
