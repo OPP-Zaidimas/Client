@@ -4,21 +4,26 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Game.Assets;
 using Game.Interfaces;
+using Game.Models.Hero;
 
 namespace Game.Views.User_Controls
 {
     public partial class MainMenu : UserControl, IGameControlsCommands
     {
-        private readonly GameWindow _window;
+        // TODO: There should be an event instead of windows reference
+        private readonly IGameWindow _window;
         private readonly SignalRService _service;
+        private readonly IFactory<IHero> _heroFactory;
 
-        public MainMenu(SignalRService service, GameWindow window)
+        public MainMenu(SignalRService service, IFactory<IHero> factory, IGameWindow window)
         {
+            InitializeComponent();
+
             _service = service;
             _service.OnGameJoinFailureReceived += OnGameFailureReceived;
             _service.OnGameStartSignalReceived += OnGameStartReceived;
-            InitializeComponent();
 
+            _heroFactory = factory;
             _window = window;
         }
 
@@ -54,7 +59,11 @@ namespace Game.Views.User_Controls
 
         public void OnGameStartReceived(string opponentUsername)
         {
-            _window.SetContent(new ArenaView(usernameInput.Text, opponentUsername));
+            // TODO: Create Heroes using id's received from the Backend
+            var playerHero = _heroFactory.Create(1);
+            var enemyHero = _heroFactory.Create(2);
+
+            _window.SetContent(new ArenaView(usernameInput.Text, opponentUsername, playerHero, enemyHero));
         }
     }
 }

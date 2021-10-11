@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Game.Models;
+using Game.Models.Hero;
 
 namespace Game.Views.User_Controls
 {
@@ -13,7 +14,7 @@ namespace Game.Views.User_Controls
             InitializeComponent();
         }
 
-        public ArenaView(string playerName, string enemyName)
+        public ArenaView(string playerName, string enemyName, IHero playerHero, IHero enemyHero)
         {
             InitializeComponent();
 
@@ -23,13 +24,15 @@ namespace Game.Views.User_Controls
             _deck = new Deck();
 
 
-            SetUsername(PlayerArenaSide, playerName);
-            SetUsername(EnemyArenaSide, enemyName);
+            SetUsername(PlayerArenaSide, playerName, playerHero.Name);
+            SetUsername(EnemyArenaSide, enemyName, enemyHero.Name);
         }
 
-        private static void SetUsername(ArenaSide arenaSide, string username)
+        private static void SetUsername(ArenaSide arenaSide, string username, string heroName)
         {
-            if (arenaSide.IsHandleCreated) arenaSide.Username = username;
+            string text = $"{username} ({heroName})";
+
+            if (arenaSide.IsHandleCreated) arenaSide.Username = text;
         }
 
         private void DrawCardButton_Click(object sender, EventArgs e)
