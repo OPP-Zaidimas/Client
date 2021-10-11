@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using Game.Models;
 using Game.Models.Hero;
+using Game.Services.AbstractFactory;
 
 namespace Game.Views.User_Controls
 {
@@ -12,17 +13,14 @@ namespace Game.Views.User_Controls
         public ArenaView()
         {
             InitializeComponent();
+
+            _deck = new Deck(new DamagingCardFactory());
         }
 
-        public ArenaView(string playerName, string enemyName, IHero playerHero, IHero enemyHero)
+        public ArenaView(string playerName, string enemyName, IHero playerHero, IHero enemyHero) : this()
         {
-            InitializeComponent();
-
             PlayerArenaSide.CreateControl();
             EnemyArenaSide.CreateControl();
-
-            _deck = new Deck();
-
 
             SetUsername(PlayerArenaSide, playerName, playerHero.Name);
             SetUsername(EnemyArenaSide, enemyName, enemyHero.Name);

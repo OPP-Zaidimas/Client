@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Game.Models.Card
+﻿namespace Game.Models.Card
 {
-    class HealingSpell : ISpellCard
+    public class HealingSpell : ISpellCard
     {
+        public string Title => "Spell";
+        public string Description => "Heals";
+        public int? Attack => null;
+        public int? Defense => null;
     }
 }

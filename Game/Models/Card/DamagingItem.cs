@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Game.Models.Card
+﻿namespace Game.Models.Card
 {
-    class DamagingItem : IItemCard
+    public class DamagingItem : IItemCard
     {
+        public string Title => "Item";
+        public string Description => "Damages";
+        public int? Attack => null;
+        public int? Defense => null;
     }
 }

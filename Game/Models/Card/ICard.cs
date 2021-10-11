@@ -6,8 +6,8 @@
 
         public string Description { get; }
 
-        /*public int Attack { get; }
+        public int? Attack { get; }
 
-        public int Defense { get; }*/
+        public int? Defense { get; }
     }
 }
