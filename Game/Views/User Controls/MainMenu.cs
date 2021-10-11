@@ -33,6 +33,14 @@ namespace Game.Views.User_Controls
             openForm.Show();
         }
 
+        private void PlayLocalButton_Click(object sender, EventArgs e)
+        {
+            var playerHero = _heroFactory.Create(1);
+            var enemyHero = _heroFactory.Create(2);
+
+            _window.SetContent(new ArenaView(usernameInput.Text, "Bot", playerHero, enemyHero));
+        }
+
         private void FindGameButton_Click(object sender, EventArgs e)
         {
             _service.Connect().ContinueWith(DisplayError);
