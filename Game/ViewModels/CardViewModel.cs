@@ -12,7 +12,7 @@ namespace Game.ViewModels
 
         public int Defense { get; set; }
 
-        public CardViewModel(Card c)
+        public CardViewModel(GameCard c)
         {
             Title = c.Title;
             Description = c.Description;

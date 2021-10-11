@@ -1,6 +1,6 @@
 ﻿namespace Game.Models
 {
-    public class Card
+    public class GameCard
     {
         public string Title { get; set; }
 
@@ -10,7 +10,7 @@
 
         public int Defense { get; set; }
 
-        public Card(string title, string description, int attack, int defense)
+        public GameCard(string title, string description, int attack, int defense)
         {
             Title = title;
             Description = description;
@@ -20,7 +20,7 @@
 
         public override string ToString()
         {
-            return $"Card Info:\n{Title}\n{Description}\n{Attack} | {Defense}\n";
+            return $"GameCard Info:\n{Title}\n{Description}\n{Attack} | {Defense}\n";
         }
     }
 }

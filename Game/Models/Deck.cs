@@ -2,9 +2,9 @@
 {
     public class Deck
     {
-        public Card Draw()
+        public GameCard Draw()
         {
-            return new Card("TestCard", "This is a test Card", 1, 2);
+            return new GameCard("TestCard", "This is a test GameCard", 1, 2);
         }
     }
 }
