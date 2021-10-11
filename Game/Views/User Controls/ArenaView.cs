@@ -11,14 +11,31 @@ namespace Game.Views.User_Controls
         public ArenaView()
         {
             InitializeComponent();
+        }
+
+        public ArenaView(string playerName, string enemyName)
+        {
+            InitializeComponent();
+
+            PlayerArenaSide.CreateControl();
+            EnemyArenaSide.CreateControl();
 
             _deck = new Deck();
+
+
+            SetUsername(PlayerArenaSide, playerName);
+            SetUsername(EnemyArenaSide, enemyName);
+        }
+
+        private static void SetUsername(ArenaSide arenaSide, string username)
+        {
+            if (arenaSide.IsHandleCreated) arenaSide.Username = username;
         }
 
         private void DrawCardButton_Click(object sender, EventArgs e)
         {
             var card = _deck.Draw();
-            //  Debug.WriteLine($"\n{card}");
+
 
             HandView.AddCard(card);
         }
