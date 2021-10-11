@@ -137,7 +137,7 @@ namespace Game.Views.User_Controls
             this.DrawCardButton.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.DrawCardButton.Size = new System.Drawing.Size(99, 26);
             this.DrawCardButton.TabIndex = 5;
-            this.DrawCardButton.Text = "Draw Card";
+            this.DrawCardButton.Text = "Draw GameCard";
             this.DrawCardButton.UseVisualStyleBackColor = true;
             this.DrawCardButton.Click += new System.EventHandler(this.DrawCardButton_Click);
             // 

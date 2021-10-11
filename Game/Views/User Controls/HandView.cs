@@ -15,13 +15,13 @@ namespace Game.Views.User_Controls
             _cards = new CardViewModel[HandLayoutPanel.ColumnCount];
         }
 
-        public void AddCard(Card card)
+        public void AddCard(GameCard gameCard)
         {
-            Add(card);
+            Add(gameCard);
             UpdateHand();
         }
 
-        private void Add(Card c)
+        private void Add(GameCard c)
         {
             for (int i = 0; i < _cards.Length; i++)
             {

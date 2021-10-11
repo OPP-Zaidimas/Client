@@ -1,10 +1,19 @@
-﻿namespace Game.Models
+﻿using Game.Services.AbstractFactory;
+
+namespace Game.Models
 {
     public class Deck
     {
-        public Card Draw()
+        private readonly ICardFactory _factory;
+
+        public Deck(ICardFactory factory)
         {
-            return new Card("TestCard", "This is a test Card", 1, 2);
+            _factory = factory;
+        }
+
+        public GameCard Draw()
+        {
+            return new GameCard("TestCard", "This is a test GameCard", 1, 2);
         }
     }
 }
