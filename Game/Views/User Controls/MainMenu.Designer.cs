@@ -62,10 +62,10 @@ namespace Game.Views.User_Controls
             this.NewGameButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.NewGameButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.NewGameButton.ForeColor = System.Drawing.Color.White;
-            this.NewGameButton.Location = new System.Drawing.Point(8, 24);
-            this.NewGameButton.Margin = new System.Windows.Forms.Padding(8, 24, 16, 16);
+            this.NewGameButton.Location = new System.Drawing.Point(6, 14);
+            this.NewGameButton.Margin = new System.Windows.Forms.Padding(6, 14, 11, 10);
             this.NewGameButton.Name = "NewGameButton";
-            this.NewGameButton.Size = new System.Drawing.Size(229, 80);
+            this.NewGameButton.Size = new System.Drawing.Size(160, 48);
             this.NewGameButton.TabIndex = 0;
             this.NewGameButton.Text = "New Game";
             this.NewGameButton.UseVisualStyleBackColor = false;
@@ -81,10 +81,10 @@ namespace Game.Views.User_Controls
             this.FindGameButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FindGameButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FindGameButton.ForeColor = System.Drawing.Color.White;
-            this.FindGameButton.Location = new System.Drawing.Point(28, 13);
-            this.FindGameButton.Margin = new System.Windows.Forms.Padding(0, 13, 0, 13);
+            this.FindGameButton.Location = new System.Drawing.Point(16, 8);
+            this.FindGameButton.Margin = new System.Windows.Forms.Padding(0, 8, 0, 8);
             this.FindGameButton.Name = "FindGameButton";
-            this.FindGameButton.Size = new System.Drawing.Size(229, 80);
+            this.FindGameButton.Size = new System.Drawing.Size(160, 48);
             this.FindGameButton.TabIndex = 1;
             this.FindGameButton.Text = "Find Game";
             this.FindGameButton.UseVisualStyleBackColor = false;
@@ -98,10 +98,10 @@ namespace Game.Views.User_Controls
             this.ExitGameButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ExitGameButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ExitGameButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(71)))), ((int)(((byte)(108)))));
-            this.ExitGameButton.Location = new System.Drawing.Point(485, 927);
-            this.ExitGameButton.Margin = new System.Windows.Forms.Padding(0, 53, 0, 80);
+            this.ExitGameButton.Location = new System.Drawing.Point(340, 556);
+            this.ExitGameButton.Margin = new System.Windows.Forms.Padding(0, 32, 0, 48);
             this.ExitGameButton.Name = "ExitGameButton";
-            this.ExitGameButton.Size = new System.Drawing.Size(229, 60);
+            this.ExitGameButton.Size = new System.Drawing.Size(160, 36);
             this.ExitGameButton.TabIndex = 2;
             this.ExitGameButton.Text = "Exit";
             this.ExitGameButton.UseVisualStyleBackColor = true;
@@ -112,10 +112,10 @@ namespace Game.Views.User_Controls
             this.TitleLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.TitleLabel.AutoSize = true;
             this.TitleLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TitleLabel.Location = new System.Drawing.Point(383, 53);
-            this.TitleLabel.Margin = new System.Windows.Forms.Padding(0, 53, 0, 13);
+            this.TitleLabel.Location = new System.Drawing.Point(277, 32);
+            this.TitleLabel.Margin = new System.Windows.Forms.Padding(0, 32, 0, 8);
             this.TitleLabel.Name = "TitleLabel";
-            this.TitleLabel.Size = new System.Drawing.Size(433, 55);
+            this.TitleLabel.Size = new System.Drawing.Size(285, 37);
             this.TitleLabel.TabIndex = 3;
             this.TitleLabel.Text = "Monsters, Spells, Items";
             // 
@@ -132,7 +132,6 @@ namespace Game.Views.User_Controls
             this.MainMenuLayoutPanel.Controls.Add(this.tableLayoutPanel4, 0, 1);
             this.MainMenuLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainMenuLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.MainMenuLayoutPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MainMenuLayoutPanel.Name = "MainMenuLayoutPanel";
             this.MainMenuLayoutPanel.RowCount = 6;
             this.MainMenuLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -141,8 +140,8 @@ namespace Game.Views.User_Controls
             this.MainMenuLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.MainMenuLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.MainMenuLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.MainMenuLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.MainMenuLayoutPanel.Size = new System.Drawing.Size(1200, 1067);
+            this.MainMenuLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
+            this.MainMenuLayoutPanel.Size = new System.Drawing.Size(840, 640);
             this.MainMenuLayoutPanel.TabIndex = 4;
             // 
             // tableLayoutPanel1
@@ -154,12 +153,12 @@ namespace Game.Views.User_Controls
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.SessionIdLabel, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.SessionIdInput, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(392, 638);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0, 53, 0, 13);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(278, 376);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0, 32, 0, 8);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(415, 49);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(283, 35);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // SessionIdLabel
@@ -167,10 +166,10 @@ namespace Game.Views.User_Controls
             this.SessionIdLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.SessionIdLabel.AutoSize = true;
             this.SessionIdLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SessionIdLabel.Location = new System.Drawing.Point(4, 8);
-            this.SessionIdLabel.Margin = new System.Windows.Forms.Padding(4, 0, 6, 0);
+            this.SessionIdLabel.Location = new System.Drawing.Point(3, 7);
+            this.SessionIdLabel.Margin = new System.Windows.Forms.Padding(3, 0, 4, 0);
             this.SessionIdLabel.Name = "SessionIdLabel";
-            this.SessionIdLabel.Size = new System.Drawing.Size(170, 32);
+            this.SessionIdLabel.Size = new System.Drawing.Size(110, 21);
             this.SessionIdLabel.TabIndex = 0;
             this.SessionIdLabel.Text = "Enter Match Id";
             // 
@@ -178,10 +177,9 @@ namespace Game.Views.User_Controls
             // 
             this.SessionIdInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.SessionIdInput.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SessionIdInput.Location = new System.Drawing.Point(184, 5);
-            this.SessionIdInput.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.SessionIdInput.Location = new System.Drawing.Point(120, 3);
             this.SessionIdInput.Name = "SessionIdInput";
-            this.SessionIdInput.Size = new System.Drawing.Size(227, 39);
+            this.SessionIdInput.Size = new System.Drawing.Size(160, 29);
             this.SessionIdInput.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -194,14 +192,14 @@ namespace Game.Views.User_Controls
             this.tableLayoutPanel2.Controls.Add(this.NewGameButton, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.NewGameStatusLabel, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.PlayLocalButton, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(347, 397);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 27);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(243, 231);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 16);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(506, 161);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 12F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(354, 97);
             this.tableLayoutPanel2.TabIndex = 5;
             // 
             // NewGameStatusLabel
@@ -210,10 +208,10 @@ namespace Game.Views.User_Controls
             this.NewGameStatusLabel.AutoSize = true;
             this.tableLayoutPanel2.SetColumnSpan(this.NewGameStatusLabel, 2);
             this.NewGameStatusLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.NewGameStatusLabel.Location = new System.Drawing.Point(88, 133);
-            this.NewGameStatusLabel.Margin = new System.Windows.Forms.Padding(0, 13, 0, 0);
+            this.NewGameStatusLabel.Location = new System.Drawing.Point(65, 80);
+            this.NewGameStatusLabel.Margin = new System.Windows.Forms.Padding(0, 8, 0, 0);
             this.NewGameStatusLabel.Name = "NewGameStatusLabel";
-            this.NewGameStatusLabel.Size = new System.Drawing.Size(330, 28);
+            this.NewGameStatusLabel.Size = new System.Drawing.Size(223, 17);
             this.NewGameStatusLabel.TabIndex = 1;
             this.NewGameStatusLabel.Text = "Press the Button to start a new game";
             // 
@@ -225,10 +223,10 @@ namespace Game.Views.User_Controls
             this.PlayLocalButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PlayLocalButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.PlayLocalButton.ForeColor = System.Drawing.Color.White;
-            this.PlayLocalButton.Location = new System.Drawing.Point(269, 24);
-            this.PlayLocalButton.Margin = new System.Windows.Forms.Padding(16, 24, 8, 16);
+            this.PlayLocalButton.Location = new System.Drawing.Point(188, 14);
+            this.PlayLocalButton.Margin = new System.Windows.Forms.Padding(11, 14, 6, 10);
             this.PlayLocalButton.Name = "PlayLocalButton";
-            this.PlayLocalButton.Size = new System.Drawing.Size(229, 80);
+            this.PlayLocalButton.Size = new System.Drawing.Size(160, 48);
             this.PlayLocalButton.TabIndex = 2;
             this.PlayLocalButton.Text = "Play Local";
             this.PlayLocalButton.UseVisualStyleBackColor = false;
@@ -242,13 +240,13 @@ namespace Game.Views.User_Controls
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Controls.Add(this.FindGameButton, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.FindGameStatusLabel, 0, 1);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(457, 700);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0, 0, 0, 27);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(324, 419);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0, 0, 0, 16);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(285, 147);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(192, 89);
             this.tableLayoutPanel3.TabIndex = 6;
             // 
             // FindGameStatusLabel
@@ -256,10 +254,10 @@ namespace Game.Views.User_Controls
             this.FindGameStatusLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.FindGameStatusLabel.AutoSize = true;
             this.FindGameStatusLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FindGameStatusLabel.Location = new System.Drawing.Point(0, 119);
-            this.FindGameStatusLabel.Margin = new System.Windows.Forms.Padding(0, 13, 0, 0);
+            this.FindGameStatusLabel.Location = new System.Drawing.Point(0, 72);
+            this.FindGameStatusLabel.Margin = new System.Windows.Forms.Padding(0, 8, 0, 0);
             this.FindGameStatusLabel.Name = "FindGameStatusLabel";
-            this.FindGameStatusLabel.Size = new System.Drawing.Size(285, 28);
+            this.FindGameStatusLabel.Size = new System.Drawing.Size(192, 17);
             this.FindGameStatusLabel.TabIndex = 2;
             this.FindGameStatusLabel.Text = "Press the Button to find a game";
             // 
@@ -271,20 +269,18 @@ namespace Game.Views.User_Controls
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.5F));
             this.tableLayoutPanel4.Controls.Add(this.usernameInput, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(417, 345);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(292, 200);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(366, 47);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(256, 28);
             this.tableLayoutPanel4.TabIndex = 7;
             // 
             // usernameInput
             // 
-            this.usernameInput.Location = new System.Drawing.Point(188, 5);
-            this.usernameInput.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.usernameInput.Location = new System.Drawing.Point(132, 3);
             this.usernameInput.Name = "usernameInput";
-            this.usernameInput.Size = new System.Drawing.Size(171, 31);
+            this.usernameInput.Size = new System.Drawing.Size(121, 23);
             this.usernameInput.TabIndex = 0;
             // 
             // label1
@@ -292,21 +288,21 @@ namespace Game.Views.User_Controls
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(56, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(4, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 47);
+            this.label1.Size = new System.Drawing.Size(122, 21);
             this.label1.TabIndex = 1;
             this.label1.Text = "Enter username:";
             // 
             // MainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(246)))), ((int)(((byte)(252)))));
             this.Controls.Add(this.MainMenuLayoutPanel);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainMenu";
-            this.Size = new System.Drawing.Size(1200, 1067);
+            this.Size = new System.Drawing.Size(840, 640);
             this.MainMenuLayoutPanel.ResumeLayout(false);
             this.MainMenuLayoutPanel.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);

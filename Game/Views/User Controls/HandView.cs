@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using Game.Models;
+using Game.Services;
 using Game.ViewModels;
 
 namespace Game.Views.User_Controls
@@ -7,6 +8,7 @@ namespace Game.Views.User_Controls
     public partial class HandView : UserControl
     {
         private readonly CardViewModel[] _cards;
+        private SignalRService _signalRService;
 
         public HandView()
         {
@@ -47,10 +49,14 @@ namespace Game.Views.User_Controls
                 var card = _cards[i];
                 if (card == null) continue;
 
-                var cardView = new CardInHandView(card, this, i);
+                var cardView = new CardInHandView(card, this, i, _signalRService);
 
                 HandLayoutPanel.Controls.Add(cardView, i, 0);
             }
+        }
+        public void RegisterSignalR(SignalRService signalR)
+        {
+            _signalRService = signalR;
         }
     }
 }

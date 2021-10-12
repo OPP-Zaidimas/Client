@@ -11,7 +11,10 @@ namespace Game.Services
 
         public event Action<int> MatchIdReceived;
         public event Action<string> OnGameJoinFailureReceived;
-        public event Action<string> OnGameStartSignalReceived;
+        public event Action<string, int> OnGameStartSignalReceived;
+        public event Action<int[], int[]> OnReceiveCardDecks;
+
+        public MatchStats matchStats;
 
         public SignalRService(HubConnection connection)
         {
@@ -23,8 +26,11 @@ namespace Game.Services
             _connection.On<string>(NetworkCall.ReceiveFailure,
                 failureMsg => OnGameJoinFailureReceived?.Invoke(failureMsg));
 
-            _connection.On<string>(NetworkCall.StartGame,
-                opponentUsername => OnGameStartSignalReceived?.Invoke(opponentUsername));
+            _connection.On<string,int>(NetworkCall.StartGame,
+                (opponentUsername, matchId) => OnGameStartSignalReceived?.Invoke(opponentUsername, matchId));
+
+            _connection.On<int[], int[]>(NetworkCall.ReceiveCardDecks, 
+                (heroCards, opponentCards) => OnReceiveCardDecks?.Invoke(heroCards, opponentCards));
         }
 
         public async Task Connect()
@@ -41,5 +47,14 @@ namespace Game.Services
         {
             await _connection.SendAsync(NetworkCall.JoinGame, matchId, username);
         }
+        public async Task PlaceCard(int matchId, int cardId, string username)
+        {
+            await _connection.SendAsync(NetworkCall.PlaceCard, matchId, cardId, username);
+        }
+        public void RegisterMatchStats(MatchStats stats)
+        {
+            matchStats = stats;
+        }
+
     }
 }

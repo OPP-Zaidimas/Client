@@ -8,5 +8,7 @@
 
         public const string CreateGame = "CreateNewGame";
         public const string JoinGame = "JoinGame";
+        public const string PlaceCard = "PlaceCard";
+        public const string ReceiveCardDecks = "ReceiveCardDecks";
     }
 }
