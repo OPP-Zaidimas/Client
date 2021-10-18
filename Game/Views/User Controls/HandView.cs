@@ -20,7 +20,7 @@ namespace Game.Views.User_Controls
         public void AddCard(GameCard gameCard)
         {
             Add(gameCard);
-            UpdateHand();
+            Invoke((MethodInvoker)UpdateHand);
         }
 
         private void Add(GameCard c)
@@ -41,7 +41,7 @@ namespace Game.Views.User_Controls
             UpdateHand();
         }
 
-        public void UpdateHand()
+        private void UpdateHand()
         {
             HandLayoutPanel.Controls.Clear();
             for (int i = 0; i < _cards.Length; i++)
@@ -54,6 +54,7 @@ namespace Game.Views.User_Controls
                 HandLayoutPanel.Controls.Add(cardView, i, 0);
             }
         }
+
         public void RegisterSignalR(SignalRService signalR)
         {
             _signalRService = signalR;

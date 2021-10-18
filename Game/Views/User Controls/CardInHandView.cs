@@ -29,7 +29,10 @@ namespace Game.Views
 
         private void PlaceButton_Click(object sender, System.EventArgs e)
         {
-            _service.PlaceCard(_index).ContinueWith(_ => { _hand.Remove(_index); });
+            _service.PlaceCard(_index).ContinueWith(_ =>
+            {
+                Invoke((MethodInvoker)delegate { _hand.Remove(_index); });
+            });
         }
     }
 }

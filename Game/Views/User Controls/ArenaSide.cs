@@ -1,8 +1,10 @@
 ﻿using System.Windows.Forms;
+using Game.Interfaces;
+using Game.ViewModels;
 
 namespace Game.Views.User_Controls
 {
-    public partial class ArenaSide : UserControl
+    public partial class ArenaSide : UserControl, IObserver
     {
         public string Username
         {
@@ -14,9 +16,17 @@ namespace Game.Views.User_Controls
             }
         }
 
+        public ArenaSideViewModel ViewModel { get; set; }
+
         public ArenaSide()
         {
             InitializeComponent();
+        }
+
+        public ArenaSide(ArenaSideViewModel viewModel) : this()
+        {
+            ViewModel = viewModel;
+            ViewModel.Subscribe(this);
         }
 
         public void UpdateCardDeck(int[] cardDeck)
@@ -55,6 +65,11 @@ namespace Game.Views.User_Controls
                 panel5.Controls.Add(new CardView(
                     new ViewModels.CardViewModel(new Models.GameCard(cardDeck[4].ToString(), "Lorem ipsum", 99, 99))));
             }
+        }
+
+        public void Update(IObservable observable)
+        {
+            UpdateCardDeck(ViewModel._cards);
         }
     }
 }
