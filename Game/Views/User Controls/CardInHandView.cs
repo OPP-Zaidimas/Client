@@ -7,9 +7,9 @@ namespace Game.Views
 {
     public partial class CardInHandView : UserControl
     {
-        private int _index;
-        private HandView _hand;
-        public SignalRService _service;
+        private readonly int _index;
+        private readonly HandView _hand;
+        private readonly SignalRService _service;
 
         public CardInHandView()
         {
@@ -29,10 +29,7 @@ namespace Game.Views
 
         private void PlaceButton_Click(object sender, System.EventArgs e)
         {
-            _service.PlaceCard(_service.matchStats.GetMatchId(),_index, _service.matchStats.GetHeroUsername()).ContinueWith((task)=>
-            {
-            });
-            _hand.Remove(_index);
+            _service.PlaceCard(_index).ContinueWith(_ => { _hand.Remove(_index); });
         }
     }
 }
