@@ -1,20 +1,22 @@
 ﻿using Game.ViewModels;
 using System.Windows.Forms;
 using Game.Views.User_Controls;
+using Game.Services;
 
 namespace Game.Views
 {
     public partial class CardInHandView : UserControl
     {
-        private int _index;
-        private HandView _hand;
+        private readonly int _index;
+        private readonly HandView _hand;
+        private readonly SignalRService _service;
 
         public CardInHandView()
         {
             InitializeComponent();
         }
 
-        public CardInHandView(CardViewModel viewModel, HandView handView, int index)
+        public CardInHandView(CardViewModel viewModel, HandView handView, int index, SignalRService service)
         {
             InitializeComponent();
 
@@ -22,11 +24,15 @@ namespace Game.Views
 
             _hand = handView;
             _index = index;
+            _service = service;
         }
 
         private void PlaceButton_Click(object sender, System.EventArgs e)
         {
-            _hand.Remove(_index);
+            _service.PlaceCard(_index).ContinueWith(_ =>
+            {
+                Invoke((MethodInvoker)delegate { _hand.Remove(_index); });
+            });
         }
     }
 }
