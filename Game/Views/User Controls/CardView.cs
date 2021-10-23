@@ -22,10 +22,8 @@ namespace Game.Views.User_Controls
             InitializeComponent();
         }
 
-        public CardView(CardViewModel viewModel)
+        public CardView(CardViewModel viewModel) : this()
         {
-            InitializeComponent();
-
             ViewModel = viewModel;
         }
 
@@ -42,6 +40,8 @@ namespace Game.Views.User_Controls
             DescriptionLabel.Text = viewModel.Description;
             AtkLabel.Text = viewModel.Attack.ToString();
             DefLabel.Text = viewModel.Defense.ToString();
+
+            BackColor = viewModel.BackgroundColor ?? BackColor;
         }
     }
 }
