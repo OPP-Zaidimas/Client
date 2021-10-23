@@ -34,7 +34,6 @@ namespace Game.Views.User_Controls
             };
         }
 
-
         public void AddCard(ICard card)
         {
             _viewModel.AddCard(card);

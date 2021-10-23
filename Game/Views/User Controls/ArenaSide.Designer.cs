@@ -35,11 +35,11 @@ namespace Game.Views.User_Controls
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.UsernameLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.Card1 = new Game.Views.User_Controls.CardView();
-            this.Card2 = new Game.Views.User_Controls.CardView();
-            this.Card3 = new Game.Views.User_Controls.CardView();
-            this.Card4 = new Game.Views.User_Controls.CardView();
-            this.Card5 = new Game.Views.User_Controls.CardView();
+            this.CardView1 = new Game.Views.User_Controls.CardView();
+            this.CardView2 = new Game.Views.User_Controls.CardView();
+            this.CardView3 = new Game.Views.User_Controls.CardView();
+            this.CardView4 = new Game.Views.User_Controls.CardView();
+            this.CardView5 = new Game.Views.User_Controls.CardView();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -125,11 +125,11 @@ namespace Game.Views.User_Controls
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.Controls.Add(this.Card1, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.Card2, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.Card3, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.Card4, 3, 0);
-            this.tableLayoutPanel3.Controls.Add(this.Card5, 4, 0);
+            this.tableLayoutPanel3.Controls.Add(this.CardView1, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.CardView2, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.CardView3, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.CardView4, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.CardView5, 4, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(113, 6);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -141,50 +141,55 @@ namespace Game.Views.User_Controls
             this.tableLayoutPanel3.Size = new System.Drawing.Size(684, 164);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
-            // Card1
+            // CardView1
             // 
-            this.Card1.Location = new System.Drawing.Point(7, 6);
-            this.Card1.Margin = new System.Windows.Forms.Padding(2);
-            this.Card1.Name = "Card1";
-            this.Card1.Size = new System.Drawing.Size(130, 152);
-            this.Card1.TabIndex = 0;
-            this.Card1.ViewModel = null;
+            this.CardView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CardView1.Location = new System.Drawing.Point(7, 6);
+            this.CardView1.Margin = new System.Windows.Forms.Padding(0);
+            this.CardView1.Name = "CardView1";
+            this.CardView1.Size = new System.Drawing.Size(130, 152);
+            this.CardView1.TabIndex = 0;
+            this.CardView1.ViewModel = null;
             // 
-            // Card2
+            // CardView2
             // 
-            this.Card2.Location = new System.Drawing.Point(142, 6);
-            this.Card2.Margin = new System.Windows.Forms.Padding(2);
-            this.Card2.Name = "Card2";
-            this.Card2.Size = new System.Drawing.Size(130, 152);
-            this.Card2.TabIndex = 1;
-            this.Card2.ViewModel = null;
+            this.CardView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CardView2.Location = new System.Drawing.Point(142, 6);
+            this.CardView2.Margin = new System.Windows.Forms.Padding(0);
+            this.CardView2.Name = "CardView2";
+            this.CardView2.Size = new System.Drawing.Size(130, 152);
+            this.CardView2.TabIndex = 1;
+            this.CardView2.ViewModel = null;
             // 
-            // Card3
+            // CardView3
             // 
-            this.Card3.Location = new System.Drawing.Point(277, 6);
-            this.Card3.Margin = new System.Windows.Forms.Padding(2);
-            this.Card3.Name = "Card3";
-            this.Card3.Size = new System.Drawing.Size(130, 152);
-            this.Card3.TabIndex = 2;
-            this.Card3.ViewModel = null;
+            this.CardView3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CardView3.Location = new System.Drawing.Point(277, 6);
+            this.CardView3.Margin = new System.Windows.Forms.Padding(0);
+            this.CardView3.Name = "CardView3";
+            this.CardView3.Size = new System.Drawing.Size(130, 152);
+            this.CardView3.TabIndex = 2;
+            this.CardView3.ViewModel = null;
             // 
-            // Card4
+            // CardView4
             // 
-            this.Card4.Location = new System.Drawing.Point(412, 6);
-            this.Card4.Margin = new System.Windows.Forms.Padding(2);
-            this.Card4.Name = "Card4";
-            this.Card4.Size = new System.Drawing.Size(130, 152);
-            this.Card4.TabIndex = 3;
-            this.Card4.ViewModel = null;
+            this.CardView4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CardView4.Location = new System.Drawing.Point(412, 6);
+            this.CardView4.Margin = new System.Windows.Forms.Padding(0);
+            this.CardView4.Name = "CardView4";
+            this.CardView4.Size = new System.Drawing.Size(130, 152);
+            this.CardView4.TabIndex = 3;
+            this.CardView4.ViewModel = null;
             // 
-            // Card5
+            // CardView5
             // 
-            this.Card5.Location = new System.Drawing.Point(547, 6);
-            this.Card5.Margin = new System.Windows.Forms.Padding(2);
-            this.Card5.Name = "Card5";
-            this.Card5.Size = new System.Drawing.Size(130, 152);
-            this.Card5.TabIndex = 4;
-            this.Card5.ViewModel = null;
+            this.CardView5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CardView5.Location = new System.Drawing.Point(547, 6);
+            this.CardView5.Margin = new System.Windows.Forms.Padding(0);
+            this.CardView5.Name = "CardView5";
+            this.CardView5.Size = new System.Drawing.Size(130, 152);
+            this.CardView5.TabIndex = 4;
+            this.CardView5.ViewModel = null;
             // 
             // ArenaSide
             // 
@@ -213,10 +218,10 @@ namespace Game.Views.User_Controls
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label UsernameLabel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private CardView Card1;
-        private CardView Card2;
-        private CardView Card3;
-        private CardView Card4;
-        private CardView Card5;
+        private CardView CardView1;
+        private CardView CardView2;
+        private CardView CardView3;
+        private CardView CardView4;
+        private CardView CardView5;
     }
 }
