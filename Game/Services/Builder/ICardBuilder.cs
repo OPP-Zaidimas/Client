@@ -4,7 +4,7 @@ namespace Game.Services.Builder
 {
     public interface ICardBuilder
     {
-        public ICardBuilder CreateCard();
+        public ICardBuilder CreateCard(int id);
 
         public ICardBuilder WithCardInformation(string title, string description = null);
 

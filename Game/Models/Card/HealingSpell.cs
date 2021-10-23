@@ -2,6 +2,8 @@
 {
     public class HealingSpell : ISpellCard, IEffect
     {
+        public int Id { get; set; }
+
         public string Title
         {
             get => "Spell";

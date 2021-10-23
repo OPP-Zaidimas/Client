@@ -8,9 +8,10 @@ namespace Game.Services.Builder
 
         public MonsterCardBuilder() { }
 
-        public ICardBuilder CreateCard()
+        public ICardBuilder CreateCard(int id)
         {
             Result = new MonsterCard();
+            Result.Id = id;
 
             return this;
         }

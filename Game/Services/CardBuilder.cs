@@ -36,7 +36,7 @@ namespace Game.Services
                 info = DefaultCard;
             }
 
-            var card = _builder.CreateCard()
+            var card = _builder.CreateCard(id)
                 .WithCardInformation(info.title, info.desc)
                 .WithStats(info.atk, info.def)
                 .Result;

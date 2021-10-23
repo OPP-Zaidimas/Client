@@ -15,6 +15,7 @@ namespace Game.Views.User_Controls
 
         private readonly ArenaSideViewModel _playerArenaViewModel;
         private readonly ArenaSideViewModel _enemyArenaViewModel;
+        private readonly CardBuilder _builder;
 
         private const int ArenaCardLimit = 5;
 
@@ -22,9 +23,13 @@ namespace Game.Views.User_Controls
         {
             InitializeComponent();
 
-            _deck = new Deck(new DamagingCardFactory(), new CardBuilder(new MonsterCardBuilder()));
+            _builder = new CardBuilder(new MonsterCardBuilder());
+            _deck = new Deck(new DamagingCardFactory(), _builder);
             _playerArenaViewModel = new ArenaSideViewModel(ArenaCardLimit);
             _enemyArenaViewModel = new ArenaSideViewModel(ArenaCardLimit);
+
+            PlayerArenaSide.Builder = _builder;
+            EnemyArenaSide.Builder = _builder;
         }
 
         public ArenaView(string playerName, string enemyName, IHero playerHero, IHero enemyHero, SignalRService service,

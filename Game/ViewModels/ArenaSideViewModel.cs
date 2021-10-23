@@ -1,18 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Game.Interfaces;
 
 namespace Game.ViewModels
 {
     public class ArenaSideViewModel : IObservable
     {
-        public int[] _cards { get; }
+        public int[] Cards { get; }
 
         private readonly List<IObserver> _observers;
 
         public ArenaSideViewModel(int length)
         {
-            _cards = new int[length];
+            Cards = new int[length];
             _observers = new List<IObserver>();
         }
 

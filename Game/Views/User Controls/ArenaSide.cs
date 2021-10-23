@@ -1,6 +1,8 @@
-﻿using System.Windows.Forms;
+﻿using System.Diagnostics;
+using System.Windows.Forms;
 using Game.Interfaces;
 using Game.Models.Card;
+using Game.Services;
 using Game.ViewModels;
 
 namespace Game.Views.User_Controls
@@ -18,6 +20,7 @@ namespace Game.Views.User_Controls
         }
 
         public ArenaSideViewModel ViewModel { get; set; }
+        public CardBuilder Builder { get; set; }
 
         public ArenaSide()
         {
@@ -32,11 +35,19 @@ namespace Game.Views.User_Controls
 
         public void UpdateCardDeck(int[] cardDeck)
         {
-            panel1.Controls.Clear();
-            panel2.Controls.Clear();
+            foreach (int id in cardDeck)
+            {
+                Debug.Write($"{id} ");
+            }
+
+            Debug.WriteLine("");
+
+
+            /*panel1.Controls.Clear();
             panel3.Controls.Clear();
             panel4.Controls.Clear();
             panel5.Controls.Clear();
+
             if (cardDeck[0] != -1)
             {
                 panel1.Controls.Add(new CardView(
@@ -65,12 +76,12 @@ namespace Game.Views.User_Controls
             {
                 panel5.Controls.Add(new CardView(
                     new ViewModels.CardViewModel(new MonsterCard(cardDeck[4].ToString(), "Lorem ipsum", 99, 99))));
-            }
+            }*/
         }
 
         public void Update(IObservable observable)
         {
-            UpdateCardDeck(ViewModel._cards);
+            UpdateCardDeck(ViewModel.Cards);
         }
     }
 }

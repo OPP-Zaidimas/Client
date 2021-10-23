@@ -6,6 +6,8 @@ namespace Game.ViewModels
 {
     public class CardViewModel
     {
+        public int Id { get; }
+
         public string Title { get; }
 
         public string Description { get; }
@@ -18,6 +20,7 @@ namespace Game.ViewModels
 
         public CardViewModel(ICard c)
         {
+            Id = c.Id;
             Title = c.Title;
             Description = c.Description;
             Attack = c.Attack;

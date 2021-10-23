@@ -35,11 +35,11 @@ namespace Game.Views.User_Controls
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.UsernameLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.Card1 = new Game.Views.User_Controls.CardView();
+            this.Card2 = new Game.Views.User_Controls.CardView();
+            this.Card3 = new Game.Views.User_Controls.CardView();
+            this.Card4 = new Game.Views.User_Controls.CardView();
+            this.Card5 = new Game.Views.User_Controls.CardView();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -125,11 +125,11 @@ namespace Game.Views.User_Controls
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.Controls.Add(this.panel5, 4, 0);
-            this.tableLayoutPanel3.Controls.Add(this.panel4, 3, 0);
-            this.tableLayoutPanel3.Controls.Add(this.panel3, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.panel2, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.Card1, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.Card2, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.Card3, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.Card4, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.Card5, 4, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(113, 6);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -141,55 +141,50 @@ namespace Game.Views.User_Controls
             this.tableLayoutPanel3.Size = new System.Drawing.Size(684, 164);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
-            // panel5
+            // Card1
             // 
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(549, 7);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(126, 150);
-            this.panel5.TabIndex = 4;
+            this.Card1.Location = new System.Drawing.Point(7, 6);
+            this.Card1.Margin = new System.Windows.Forms.Padding(2);
+            this.Card1.Name = "Card1";
+            this.Card1.Size = new System.Drawing.Size(130, 152);
+            this.Card1.TabIndex = 0;
+            this.Card1.ViewModel = null;
             // 
-            // panel4
+            // Card2
             // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(414, 7);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(126, 150);
-            this.panel4.TabIndex = 3;
+            this.Card2.Location = new System.Drawing.Point(142, 6);
+            this.Card2.Margin = new System.Windows.Forms.Padding(2);
+            this.Card2.Name = "Card2";
+            this.Card2.Size = new System.Drawing.Size(130, 152);
+            this.Card2.TabIndex = 1;
+            this.Card2.ViewModel = null;
             // 
-            // panel3
+            // Card3
             // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(279, 7);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(126, 150);
-            this.panel3.TabIndex = 2;
+            this.Card3.Location = new System.Drawing.Point(277, 6);
+            this.Card3.Margin = new System.Windows.Forms.Padding(2);
+            this.Card3.Name = "Card3";
+            this.Card3.Size = new System.Drawing.Size(130, 152);
+            this.Card3.TabIndex = 2;
+            this.Card3.ViewModel = null;
             // 
-            // panel2
+            // Card4
             // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(144, 7);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(126, 150);
-            this.panel2.TabIndex = 1;
+            this.Card4.Location = new System.Drawing.Point(412, 6);
+            this.Card4.Margin = new System.Windows.Forms.Padding(2);
+            this.Card4.Name = "Card4";
+            this.Card4.Size = new System.Drawing.Size(130, 152);
+            this.Card4.TabIndex = 3;
+            this.Card4.ViewModel = null;
             // 
-            // panel1
+            // Card5
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(9, 7);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(126, 150);
-            this.panel1.TabIndex = 0;
+            this.Card5.Location = new System.Drawing.Point(547, 6);
+            this.Card5.Margin = new System.Windows.Forms.Padding(2);
+            this.Card5.Name = "Card5";
+            this.Card5.Size = new System.Drawing.Size(130, 152);
+            this.Card5.TabIndex = 4;
+            this.Card5.ViewModel = null;
             // 
             // ArenaSide
             // 
@@ -218,10 +213,10 @@ namespace Game.Views.User_Controls
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label UsernameLabel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel2;
+        private CardView Card1;
+        private CardView Card2;
+        private CardView Card3;
+        private CardView Card4;
+        private CardView Card5;
     }
 }

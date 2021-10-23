@@ -2,6 +2,8 @@
 {
     public class HealingItem : IItemCard
     {
+        public int Id { get; set; }
+
         public string Title
         {
             get => "Item";
