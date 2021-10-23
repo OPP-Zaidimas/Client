@@ -2,9 +2,28 @@
 {
     public class DamagingItem : IItemCard
     {
-        public string Title => "Item";
-        public string Description => "Damages";
-        public int? Attack => null;
-        public int? Defense => null;
+        public string Title
+        {
+            get => "Item";
+            set => throw new System.NotImplementedException();
+        }
+
+        public string Description
+        {
+            get => "Damages";
+            set => throw new System.NotImplementedException();
+        }
+
+        public int? Attack
+        {
+            get => null;
+            set => throw new System.NotImplementedException();
+        }
+
+        public int? Defense
+        {
+            get => null;
+            set => throw new System.NotImplementedException();
+        }
     }
 }

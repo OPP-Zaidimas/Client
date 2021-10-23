@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using Game.Interfaces;
+using Game.Models.Card;
 using Game.ViewModels;
 
 namespace Game.Views.User_Controls
@@ -39,31 +40,31 @@ namespace Game.Views.User_Controls
             if (cardDeck[0] != -1)
             {
                 panel1.Controls.Add(new CardView(
-                    new ViewModels.CardViewModel(new Models.GameCard(cardDeck[0].ToString(), "Lorem ipsum", 99, 99))));
+                    new ViewModels.CardViewModel(new MonsterCard(cardDeck[0].ToString(), "Lorem ipsum", 99, 99))));
             }
 
             if (cardDeck[1] != -1)
             {
                 panel2.Controls.Add(new CardView(
-                    new ViewModels.CardViewModel(new Models.GameCard(cardDeck[1].ToString(), "Lorem ipsum", 99, 99))));
+                    new ViewModels.CardViewModel(new MonsterCard(cardDeck[1].ToString(), "Lorem ipsum", 99, 99))));
             }
 
             if (cardDeck[2] != -1)
             {
                 panel3.Controls.Add(new CardView(
-                    new ViewModels.CardViewModel(new Models.GameCard(cardDeck[2].ToString(), "Lorem ipsum", 99, 99))));
+                    new ViewModels.CardViewModel(new MonsterCard(cardDeck[2].ToString(), "Lorem ipsum", 99, 99))));
             }
 
             if (cardDeck[3] != -1)
             {
                 panel4.Controls.Add(new CardView(
-                    new ViewModels.CardViewModel(new Models.GameCard(cardDeck[3].ToString(), "Lorem ipsum", 99, 99))));
+                    new ViewModels.CardViewModel(new MonsterCard(cardDeck[3].ToString(), "Lorem ipsum", 99, 99))));
             }
 
             if (cardDeck[4] != -1)
             {
                 panel5.Controls.Add(new CardView(
-                    new ViewModels.CardViewModel(new Models.GameCard(cardDeck[4].ToString(), "Lorem ipsum", 99, 99))));
+                    new ViewModels.CardViewModel(new MonsterCard(cardDeck[4].ToString(), "Lorem ipsum", 99, 99))));
             }
         }
 

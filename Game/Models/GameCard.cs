@@ -1,4 +1,6 @@
-﻿namespace Game.Models
+﻿using Game.Models.Card;
+
+namespace Game.Models
 {
     public class GameCard
     {
@@ -16,6 +18,14 @@
             Description = description;
             Attack = attack;
             Defense = defense;
+        }
+
+        public GameCard(ICard card)
+        {
+            Title = card.Title;
+            Description = card.Description;
+            Attack = card.Attack ?? 0;
+            Defense = card.Defense ?? 0;
         }
 
         public override string ToString()

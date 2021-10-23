@@ -2,12 +2,31 @@
 {
     public class DamagingSpell : ISpellCard, IEffect
     {
-        public string Title => "Spell";
-        public string Description => "Damages";
-        public int? Attack => null;
-        public int? Defense => null;
+        public string Title
+        {
+            get => "Spell";
+            set => throw new System.NotImplementedException();
+        }
 
-        public int EffectStrength { get => EffectStrength; set => EffectStrength = value; }
+        public string Description
+        {
+            get => "Damages";
+            set => throw new System.NotImplementedException();
+        }
+
+        public int? Attack
+        {
+            get => null;
+            set => throw new System.NotImplementedException();
+        }
+
+        public int? Defense
+        {
+            get => null;
+            set => throw new System.NotImplementedException();
+        }
+
+        public int EffectStrength { get; set; }
 
         public (int, int) ApplyEffect((int index, int hp) card_data)
         {

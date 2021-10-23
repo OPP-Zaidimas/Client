@@ -1,4 +1,5 @@
 ﻿using Game.Models;
+using Game.Models.Card;
 
 namespace Game.ViewModels
 {
@@ -8,11 +9,11 @@ namespace Game.ViewModels
 
         public string Description { get; set; }
 
-        public int Attack { get; set; }
+        public int? Attack { get; set; }
 
-        public int Defense { get; set; }
+        public int? Defense { get; set; }
 
-        public CardViewModel(GameCard c)
+        public CardViewModel(ICard c)
         {
             Title = c.Title;
             Description = c.Description;

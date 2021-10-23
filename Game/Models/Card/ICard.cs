@@ -2,12 +2,12 @@
 {
     public interface ICard
     {
-        public string Title { get; }
+        public string Title { get; set; }
 
-        public string Description { get; }
+        public string Description { get; set; }
 
-        public int? Attack { get; }
+        public int? Attack { get; set; }
 
-        public int? Defense { get; }
+        public int? Defense { get; set; }
     }
 }

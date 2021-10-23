@@ -20,7 +20,7 @@ namespace Game.Views
         {
             InitializeComponent();
 
-            CardView.UpdateContent(viewModel);
+            CardView.ViewModel = viewModel;
 
             _hand = handView;
             _index = index;

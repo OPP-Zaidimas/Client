@@ -1,19 +1,30 @@
-﻿using Game.Services.AbstractFactory;
+﻿using System;
+using Game.Models.Card;
+using Game.Services;
+using Game.Services.AbstractFactory;
 
 namespace Game.Models
 {
     public class Deck
     {
         private readonly ICardFactory _factory;
+        private readonly CardBuilder _builder;
+        private readonly Random _rnd;
 
-        public Deck(ICardFactory factory)
+        public Deck(ICardFactory factory, CardBuilder builder)
         {
             _factory = factory;
+            _builder = builder;
+
+            _rnd = new Random();
         }
 
-        public GameCard Draw()
+        public ICard Draw()
         {
-            return new GameCard("TestCard", "This is a test GameCard", 1, 2);
+            int id = _rnd.Next(1, 5);
+            var card = _builder.CreateCard(id);
+
+            return card;
         }
     }
 }

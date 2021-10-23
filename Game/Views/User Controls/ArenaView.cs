@@ -4,6 +4,7 @@ using Game.Models;
 using Game.Models.Hero;
 using Game.Services;
 using Game.Services.AbstractFactory;
+using Game.Services.Builder;
 using Game.ViewModels;
 
 namespace Game.Views.User_Controls
@@ -21,7 +22,7 @@ namespace Game.Views.User_Controls
         {
             InitializeComponent();
 
-            _deck = new Deck(new DamagingCardFactory());
+            _deck = new Deck(new DamagingCardFactory(), new CardBuilder(new MonsterCardBuilder()));
             _playerArenaViewModel = new ArenaSideViewModel(ArenaCardLimit);
             _enemyArenaViewModel = new ArenaSideViewModel(ArenaCardLimit);
         }
@@ -64,7 +65,6 @@ namespace Game.Views.User_Controls
         private void DrawCardButton_Click(object sender, EventArgs e)
         {
             var card = _deck.Draw();
-
 
             HandView.AddCard(card);
         }

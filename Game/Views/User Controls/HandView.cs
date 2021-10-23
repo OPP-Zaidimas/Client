@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using Game.Models;
+using Game.Models.Card;
 using Game.Services;
 using Game.ViewModels;
 
@@ -17,13 +18,13 @@ namespace Game.Views.User_Controls
             _cards = new CardViewModel[HandLayoutPanel.ColumnCount];
         }
 
-        public void AddCard(GameCard gameCard)
+        public void AddCard(ICard gameCard)
         {
             Add(gameCard);
             Invoke((MethodInvoker)UpdateHand);
         }
 
-        private void Add(GameCard c)
+        private void Add(ICard c)
         {
             for (int i = 0; i < _cards.Length; i++)
             {
