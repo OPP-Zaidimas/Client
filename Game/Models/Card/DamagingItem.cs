@@ -1,6 +1,8 @@
-﻿namespace Game.Models.Card
+﻿using System;
+
+namespace Game.Models.Card
 {
-    public class DamagingItem : IItemCard
+    public class DamagingItem : IItemCard, ICloneable
     {
         public int Id { get; set; }
 
@@ -27,5 +29,25 @@
             get => null;
             set => throw new System.NotImplementedException();
         }
+
+        public DamagingItem(DamagingItem other)
+        {
+            this.Id = other.Id;
+            this.Title = other.Title;
+            this.Description = other.Description;
+            this.Attack = other.Attack;
+            this.Defense = other.Defense;
+        }
+
+        public DamagingItem Clone()
+        {
+            return new DamagingItem(this);
+        }
+
+        object ICloneable.Clone()
+        {
+            return Clone();
+        }
+
     }
 }

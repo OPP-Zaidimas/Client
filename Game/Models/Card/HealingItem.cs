@@ -1,6 +1,7 @@
-﻿namespace Game.Models.Card
+﻿using System;
+namespace Game.Models.Card
 {
-    public class HealingItem : IItemCard
+    public class HealingItem : IItemCard, ICloneable
     {
         public int Id { get; set; }
 
@@ -26,6 +27,25 @@
         {
             get => null;
             set => throw new System.NotImplementedException();
+        }
+
+        public HealingItem(HealingItem other)
+        {
+            this.Id = other.Id;
+            this.Title = other.Title;
+            this.Description = other.Description;
+            this.Attack = other.Attack;
+            this.Defense = other.Defense;
+        }
+
+        public HealingItem Clone()
+        {
+            return new HealingItem(this);
+        }
+
+        object ICloneable.Clone()
+        {
+            return Clone();
         }
     }
 }

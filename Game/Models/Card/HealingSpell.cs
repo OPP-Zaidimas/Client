@@ -1,6 +1,7 @@
-﻿namespace Game.Models.Card
+﻿using System;
+namespace Game.Models.Card
 {
-    public class HealingSpell : ISpellCard, IEffect
+    public class HealingSpell : ISpellCard, IEffect, ICloneable
     {
         public int Id { get; set; }
 
@@ -33,6 +34,25 @@
         public (int, int) ApplyEffect((int index, int hp) card_data)
         {
             return (card_data.index, card_data.hp + EffectStrength);
+        }
+
+        public HealingSpell(HealingSpell other)
+        {
+            this.Id = other.Id;
+            this.Title = other.Title;
+            this.Description = other.Description;
+            this.Attack = other.Attack;
+            this.Defense = other.Defense;
+        }
+
+        public HealingSpell Clone()
+        {
+            return new HealingSpell(this);
+        }
+
+        object ICloneable.Clone()
+        {
+            return Clone();
         }
     }
 }
