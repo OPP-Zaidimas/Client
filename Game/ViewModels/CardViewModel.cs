@@ -1,23 +1,40 @@
-﻿using Game.Models;
+﻿using System.Drawing;
+using Game.Models;
+using Game.Models.Card;
 
 namespace Game.ViewModels
 {
     public class CardViewModel
     {
-        public string Title { get; set; }
+        public int Id { get; }
 
-        public string Description { get; set; }
+        public string Title { get; }
 
-        public int Attack { get; set; }
+        public string Description { get; }
 
-        public int Defense { get; set; }
+        public int? Attack { get; }
 
-        public CardViewModel(GameCard c)
+        public int? Defense { get; }
+
+        public Color? BackgroundColor { get; private set; }
+
+        public CardViewModel(ICard c)
         {
+            Id = c.Id;
             Title = c.Title;
             Description = c.Description;
             Attack = c.Attack;
             Defense = c.Defense;
+
+            SelectBackgroundColor(c);
+        }
+
+        private void SelectBackgroundColor(ICard c)
+        {
+            if (c is MonsterCard)
+            {
+                BackgroundColor = CardColors.MonsterBackgroundColor;
+            }
         }
     }
 }

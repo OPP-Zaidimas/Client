@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game.Models.Card
 {
-    interface IEffect
+    public interface IEffect
     {
         public int EffectStrength { get; set; }
 

@@ -2,16 +2,37 @@
 {
     public class HealingSpell : ISpellCard, IEffect
     {
-        public string Title => "Spell";
-        public string Description => "Heals";
-        public int? Attack => null;
-        public int? Defense => null;
+        public int Id { get; set; }
 
-        public int EffectStrength { get => EffectStrength; set => EffectStrength = value; }
+        public string Title
+        {
+            get => "Spell";
+            set => throw new System.NotImplementedException();
+        }
+
+        public string Description
+        {
+            get => "Heals";
+            set => throw new System.NotImplementedException();
+        }
+
+        public int? Attack
+        {
+            get => null;
+            set => throw new System.NotImplementedException();
+        }
+
+        public int? Defense
+        {
+            get => null;
+            set => throw new System.NotImplementedException();
+        }
+
+        public int EffectStrength { get; set; }
 
         public (int, int) ApplyEffect((int index, int hp) card_data)
         {
-            return (card_data.index, card_data.hp+EffectStrength);
+            return (card_data.index, card_data.hp + EffectStrength);
         }
     }
 }
