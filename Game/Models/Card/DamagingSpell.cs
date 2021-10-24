@@ -36,6 +36,10 @@ namespace Game.Models.Card
             return (card_data.index, EffectStrength < card_data.hp ? card_data.hp - EffectStrength : 0);
         }
 
+        public DamagingSpell()
+        {
+        }
+
         public DamagingSpell(DamagingSpell other)
         {
             this.Id = other.Id;

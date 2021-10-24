@@ -8,6 +8,6 @@ namespace Game.Models.Card
 {
     public abstract class EffectDecorator : HealingItem
     {
-        public abstract String applyEffect();
+        public new abstract String ApplyEffect();
     }
 }

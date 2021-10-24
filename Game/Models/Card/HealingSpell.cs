@@ -36,6 +36,11 @@ namespace Game.Models.Card
             return (card_data.index, card_data.hp + EffectStrength);
         }
 
+        public HealingSpell()
+        {
+        }
+
+
         public HealingSpell(HealingSpell other)
         {
             this.Id = other.Id;

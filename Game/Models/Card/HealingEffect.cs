@@ -14,9 +14,9 @@ namespace Game.Models.Card
         {
             healingItem = h;
         }
-        public override String applyEffect()
+        public override String ApplyEffect()
         {
-            return healingItem.applyEffect() + "It heals";
+            return healingItem.ApplyEffect() + "It heals";
         }
     }
 }

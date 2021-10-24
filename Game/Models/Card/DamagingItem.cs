@@ -29,6 +29,9 @@ namespace Game.Models.Card
             get => null;
             set => throw new System.NotImplementedException();
         }
+        public DamagingItem()
+        {
+        }
 
         public DamagingItem(DamagingItem other)
         {

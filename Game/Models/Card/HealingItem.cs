@@ -29,7 +29,7 @@ namespace Game.Models.Card
             set => throw new System.NotImplementedException();
         }
 
-        public String applyEffect()
+        public String ApplyEffect()
         {
             return "Effects:";
         }
