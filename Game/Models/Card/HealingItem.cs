@@ -29,6 +29,21 @@ namespace Game.Models.Card
             set => throw new System.NotImplementedException();
         }
 
+        public String applyEffect()
+        {
+            return "Effects:";
+        }
+        public HealingItem(string title, string description, int attack, int defense)
+        {
+            Title = title;
+            Description = description;
+            Attack = attack;
+            Defense = defense;
+        }
+        public HealingItem()
+        {
+        }
+
         public HealingItem(HealingItem other)
         {
             this.Id = other.Id;

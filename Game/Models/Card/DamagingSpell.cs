@@ -43,6 +43,7 @@ namespace Game.Models.Card
             this.Description = other.Description;
             this.Attack = other.Attack;
             this.Defense = other.Defense;
+            this.EffectStrength = other.EffectStrength;
         }
 
         public DamagingSpell Clone()
