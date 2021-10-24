@@ -1,6 +1,8 @@
-﻿namespace Game.Models.Card
+﻿using System;
+
+namespace Game.Models.Card
 {
-    public class MonsterCard : ICard
+    public class MonsterCard : ICard, ICloneable
     {
         public int Id { get; set; }
         public string Title { get; set; }
@@ -16,6 +18,25 @@
             Description = description;
             Attack = attack;
             Defense = defense;
+        }
+
+        public MonsterCard(MonsterCard other)
+        {
+            this.Id = other.Id;
+            this.Title = other.Title;
+            this.Description = other.Description;
+            this.Attack = other.Attack;
+            this.Defense = other.Defense;
+        }
+
+        public MonsterCard Clone()
+        {
+            return new MonsterCard(this);
+        }
+
+        object ICloneable.Clone()
+        {
+            return Clone();
         }
     }
 }
