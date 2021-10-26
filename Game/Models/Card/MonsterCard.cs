@@ -2,7 +2,7 @@
 
 namespace Game.Models.Card
 {
-    public class MonsterCard : ICard, ICloneable
+    public class MonsterCard : ICard, ICloneable<MonsterCard>
     {
         public int Id { get; set; }
         public string Title { get; set; }
@@ -38,5 +38,7 @@ namespace Game.Models.Card
         {
             return Clone();
         }
+
+
     }
 }

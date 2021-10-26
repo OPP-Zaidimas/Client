@@ -2,7 +2,7 @@
 
 namespace Game.Models.Card
 {
-    public class DamagingItem : IItemCard, ICloneable
+    public class DamagingItem : IItemCard, ICloneable<DamagingItem>
     {
         public int Id { get; set; }
 

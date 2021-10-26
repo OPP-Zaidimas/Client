@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Game.Models.Card
 {
-    public class HealingSpell : ISpellCard, IEffect, ICloneable
+    public class HealingSpell : ISpellCard, IEffect, ICloneable<HealingSpell>
     {
         public int Id { get; set; }
 
