@@ -1,6 +1,8 @@
-﻿namespace Game.Models.Card
+﻿using System;
+
+namespace Game.Models.Card
 {
-    public class DamagingSpell : ISpellCard, IEffect
+    public class DamagingSpell : ISpellCard, IEffect, ICloneable<DamagingSpell>
     {
         public int Id { get; set; }
 
@@ -33,6 +35,23 @@
         public (int, int) ApplyEffect((int index, int hp) card_data)
         {
             return (card_data.index, EffectStrength < card_data.hp ? card_data.hp - EffectStrength : 0);
+        }
+
+        public DamagingSpell() { }
+
+        public DamagingSpell(DamagingSpell other)
+        {
+            Id = other.Id;
+            Title = other.Title;
+            Description = other.Description;
+            Attack = other.Attack;
+            Defense = other.Defense;
+            EffectStrength = other.EffectStrength;
+        }
+
+        public DamagingSpell Clone()
+        {
+            return new DamagingSpell(this);
         }
     }
 }
