@@ -42,11 +42,24 @@ namespace Game.Views.User_Controls
         public void RegisterSignalR(SignalRService signalR)
         {
             _service = signalR;
+            _service.OnReceiveEndTurn += UpdatePlaceButtons;
         }
 
         public void Update(IObservable observable)
         {
             UpdateHand(_viewModel.Cards);
+        }
+
+        public void UpdatePlaceButtons(bool buttonStatus)
+        {
+            for(int i = 0; i < _viewModel.Cards.Length; i++)
+            {
+                if(_viewModel.Cards[i]!=null)
+                {
+                    var (_, button) = _controls[i];
+                    button.Enabled = buttonStatus;
+                }
+            }
         }
 
         private void UpdateHand(IReadOnlyList<ICard> cards)

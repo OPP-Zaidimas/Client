@@ -64,22 +64,26 @@ namespace Game.Views.User_Controls
             // PlayerArenaSide
             // 
             this.PlayerArenaSide.AutoSize = true;
+            this.PlayerArenaSide.Builder = null;
             this.PlayerArenaSide.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PlayerArenaSide.Location = new System.Drawing.Point(3, 352);
             this.PlayerArenaSide.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PlayerArenaSide.Name = "PlayerArenaSide";
             this.PlayerArenaSide.Size = new System.Drawing.Size(1119, 310);
             this.PlayerArenaSide.TabIndex = 0;
+            this.PlayerArenaSide.ViewModel = null;
             // 
             // EnemyArenaSide
             // 
             this.EnemyArenaSide.AutoSize = true;
+            this.EnemyArenaSide.Builder = null;
             this.EnemyArenaSide.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EnemyArenaSide.Location = new System.Drawing.Point(3, 2);
             this.EnemyArenaSide.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.EnemyArenaSide.Name = "EnemyArenaSide";
             this.EnemyArenaSide.Size = new System.Drawing.Size(1119, 310);
             this.EnemyArenaSide.TabIndex = 1;
+            this.EnemyArenaSide.ViewModel = null;
             // 
             // HandView
             // 
@@ -123,6 +127,7 @@ namespace Game.Views.User_Controls
             this.EndTurnButton.TabIndex = 4;
             this.EndTurnButton.Text = "End Turn";
             this.EndTurnButton.UseVisualStyleBackColor = true;
+            this.EndTurnButton.Click += new System.EventHandler(this.EndTurnButton_Click);
             // 
             // DrawCardButton
             // 
@@ -131,11 +136,11 @@ namespace Game.Views.User_Controls
             this.DrawCardButton.AutoSize = true;
             this.DrawCardButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.DrawCardButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.DrawCardButton.Location = new System.Drawing.Point(922, 3);
+            this.DrawCardButton.Location = new System.Drawing.Point(886, 3);
             this.DrawCardButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.DrawCardButton.Name = "DrawCardButton";
             this.DrawCardButton.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.DrawCardButton.Size = new System.Drawing.Size(99, 26);
+            this.DrawCardButton.Size = new System.Drawing.Size(135, 26);
             this.DrawCardButton.TabIndex = 5;
             this.DrawCardButton.Text = "Draw GameCard";
             this.DrawCardButton.UseVisualStyleBackColor = true;

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
+using Game.Commands;
+using Game.Interfaces;
 using Game.Models;
 using Game.Models.Hero;
 using Game.Services;
@@ -16,6 +18,9 @@ namespace Game.Views.User_Controls
         private readonly ArenaSideViewModel _playerArenaViewModel;
         private readonly ArenaSideViewModel _enemyArenaViewModel;
         private readonly CardBuilder _builder;
+
+        private ICommand _drawCard;
+        private ICommand _endturn;
 
         private const int ArenaCardLimit = 5;
 
@@ -41,8 +46,13 @@ namespace Game.Views.User_Controls
             SetupArenaSide(EnemyArenaSide, enemyName, enemyHero.Name, _enemyArenaViewModel);
 
             HandView.RegisterSignalR(service);
+            
+            _endturn = new EndTurnCommand(service);
+            _drawCard = new DrawCardCommand(_deck, this.HandView);
 
             service.OnReceiveCardDecks += OnCardsUpdateReceived;
+            service.OnReceiveEndTurn += UpdateButtons;
+
         }
 
         private static void SetupArenaSide(ArenaSide arenaSide, string username, string heroName,
@@ -60,6 +70,12 @@ namespace Game.Views.User_Controls
             EnemyArenaSide.UpdateCardDeck(opponentCards);
         }
 
+        public void UpdateButtons(bool buttonStatus)
+        {
+            EndTurnButton.Enabled = buttonStatus;
+            DrawCardButton.Enabled = buttonStatus;
+        }
+
         private static void SetUsername(ArenaSide arenaSide, string username, string heroName)
         {
             string text = $"{username} ({heroName})";
@@ -69,9 +85,12 @@ namespace Game.Views.User_Controls
 
         private void DrawCardButton_Click(object sender, EventArgs e)
         {
-            var card = _deck.Draw();
+            _drawCard.execute();
+        }
 
-            HandView.AddCard(card);
+        private void EndTurnButton_Click(object sender, EventArgs e)
+        {
+            _endturn.execute();
         }
     }
 }

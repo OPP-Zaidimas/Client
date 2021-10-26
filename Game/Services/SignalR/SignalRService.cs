@@ -13,6 +13,7 @@ namespace Game.Services
         public event Action<string> OnGameJoinFailureReceived;
         public event Action<string, int> OnGameStartSignalReceived;
         public event Action<int[], int[]> OnReceiveCardDecks;
+        public event Action<bool> OnReceiveEndTurn;
 
         public MatchStats MatchStats;
 
@@ -31,6 +32,8 @@ namespace Game.Services
 
             _connection.On<int[], int[]>(NetworkCall.ReceiveCardDecks,
                 (heroCards, opponentCards) => OnReceiveCardDecks?.Invoke(heroCards, opponentCards));
+
+            _connection.On<bool>(NetworkCall.ReceiveEndTurn, buttonStatus => OnReceiveEndTurn.Invoke(buttonStatus));
         }
 
         public async Task Connect()
@@ -56,6 +59,11 @@ namespace Game.Services
                 cardId,
                 MatchStats.GetHeroUsername()
             );
+        }
+
+        public async Task EndTurn()
+        {
+            await _connection.SendAsync(NetworkCall.EndTurn, MatchStats.GetMatchId());
         }
 
         public void RegisterMatchStats(MatchStats stats)
