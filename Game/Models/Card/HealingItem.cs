@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace Game.Models.Card
 {
     public class HealingItem : IItemCard, ICloneable<HealingItem>
@@ -33,6 +34,7 @@ namespace Game.Models.Card
         {
             return "Effects:";
         }
+
         public HealingItem(string title, string description, int attack, int defense)
         {
             Title = title;
@@ -40,27 +42,21 @@ namespace Game.Models.Card
             Attack = attack;
             Defense = defense;
         }
-        public HealingItem()
-        {
-        }
+
+        public HealingItem() { }
 
         public HealingItem(HealingItem other)
         {
-            this.Id = other.Id;
-            this.Title = other.Title;
-            this.Description = other.Description;
-            this.Attack = other.Attack;
-            this.Defense = other.Defense;
+            Id = other.Id;
+            Title = other.Title;
+            Description = other.Description;
+            Attack = other.Attack;
+            Defense = other.Defense;
         }
 
         public HealingItem Clone()
         {
             return new HealingItem(this);
-        }
-
-        object ICloneable.Clone()
-        {
-            return Clone();
         }
     }
 }

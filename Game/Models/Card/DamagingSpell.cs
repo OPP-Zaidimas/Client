@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace Game.Models.Card
 {
     public class DamagingSpell : ISpellCard, IEffect, ICloneable<DamagingSpell>
@@ -36,28 +37,21 @@ namespace Game.Models.Card
             return (card_data.index, EffectStrength < card_data.hp ? card_data.hp - EffectStrength : 0);
         }
 
-        public DamagingSpell()
-        {
-        }
+        public DamagingSpell() { }
 
         public DamagingSpell(DamagingSpell other)
         {
-            this.Id = other.Id;
-            this.Title = other.Title;
-            this.Description = other.Description;
-            this.Attack = other.Attack;
-            this.Defense = other.Defense;
-            this.EffectStrength = other.EffectStrength;
+            Id = other.Id;
+            Title = other.Title;
+            Description = other.Description;
+            Attack = other.Attack;
+            Defense = other.Defense;
+            EffectStrength = other.EffectStrength;
         }
 
         public DamagingSpell Clone()
         {
             return new DamagingSpell(this);
-        }
-
-        object ICloneable.Clone()
-        {
-            return Clone();
         }
     }
 }

@@ -22,23 +22,16 @@ namespace Game.Models.Card
 
         public MonsterCard(MonsterCard other)
         {
-            this.Id = other.Id;
-            this.Title = other.Title;
-            this.Description = other.Description;
-            this.Attack = other.Attack;
-            this.Defense = other.Defense;
+            Id = other.Id;
+            Title = other.Title;
+            Description = other.Description;
+            Attack = other.Attack;
+            Defense = other.Defense;
         }
 
         public MonsterCard Clone()
         {
             return new MonsterCard(this);
         }
-
-        object ICloneable.Clone()
-        {
-            return Clone();
-        }
-
-
     }
 }

@@ -29,28 +29,20 @@ namespace Game.Models.Card
             get => null;
             set => throw new System.NotImplementedException();
         }
-        public DamagingItem()
-        {
-        }
+
+        public DamagingItem() { }
 
         public DamagingItem(DamagingItem other)
         {
-            this.Id = other.Id;
-            this.Title = other.Title;
-            this.Description = other.Description;
-            this.Attack = other.Attack;
-            this.Defense = other.Defense;
+            Id = other.Id;
+            Description = other.Description;
+            Attack = other.Attack;
+            Defense = other.Defense;
         }
 
         public DamagingItem Clone()
         {
             return new DamagingItem(this);
         }
-
-        object ICloneable.Clone()
-        {
-            return Clone();
-        }
-
     }
 }
