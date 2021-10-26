@@ -18,8 +18,6 @@ namespace Game.Views.User_Controls
         private readonly ArenaSideViewModel _playerArenaViewModel;
         private readonly ArenaSideViewModel _enemyArenaViewModel;
         private readonly CardBuilder _builder;
-        private Button endTurn;
-        private Button drawCard;
 
         private ICommand _drawCard;
         private ICommand _endturn;
@@ -37,9 +35,6 @@ namespace Game.Views.User_Controls
 
             PlayerArenaSide.Builder = _builder;
             EnemyArenaSide.Builder = _builder;
-
-            endTurn = EndTurnButton;
-            drawCard = DrawCardButton;
         }
 
         public ArenaView(string playerName, string enemyName, IHero playerHero, IHero enemyHero, SignalRService service,
@@ -77,8 +72,8 @@ namespace Game.Views.User_Controls
 
         public void UpdateButtons(bool buttonStatus)
         {
-            endTurn.Enabled = buttonStatus;
-            drawCard.Enabled = buttonStatus;
+            EndTurnButton.Enabled = buttonStatus;
+            DrawCardButton.Enabled = buttonStatus;
         }
 
         private static void SetUsername(ArenaSide arenaSide, string username, string heroName)
@@ -87,8 +82,6 @@ namespace Game.Views.User_Controls
 
             if (arenaSide.IsHandleCreated) arenaSide.Username = text;
         }
-
-
 
         private void DrawCardButton_Click(object sender, EventArgs e)
         {

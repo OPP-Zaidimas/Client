@@ -52,11 +52,11 @@ namespace Game.Views.User_Controls
 
         public void UpdatePlaceButtons(bool buttonStatus)
         {
-            for(int i = 0; i < ((IReadOnlyList<ICard>)_viewModel.Cards).Count; i++)
+            for(int i = 0; i < _viewModel.Cards.Length; i++)
             {
                 if(_viewModel.Cards[i]!=null)
                 {
-                    var (cardView, button) = _controls[i];
+                    var (_, button) = _controls[i];
                     button.Enabled = buttonStatus;
                 }
             }
