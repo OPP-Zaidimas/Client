@@ -33,9 +33,9 @@ namespace Game.ViewModels
             }
         }
 
-        public int IdAt(int index)
+        public (int, int) IdAt(int index)
         {
-            return Cards[index].Id;
+            return (index,Cards[index].CurrentHp);
         }
 
         public void RemoveCard(int index)

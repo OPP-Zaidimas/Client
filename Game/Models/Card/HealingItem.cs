@@ -29,6 +29,7 @@ namespace Game.Models.Card
             get => null;
             set => throw new System.NotImplementedException();
         }
+        public int CurrentHp { get; set; }
 
         public String ApplyEffect()
         {

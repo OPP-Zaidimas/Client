@@ -11,6 +11,8 @@
         public const string PlaceCard = "PlaceCard";
         public const string ReceiveCardDecks = "ReceiveCardDecks";
         public const string ReceiveEndTurn = "ReceiveEndTurn";
+        public const string MonsterAttack = "MonsterAttack";
+        public const string ReceiveHPs = "ReceiveHPs";
 
         public const string EndTurn = "EndTurn";
         

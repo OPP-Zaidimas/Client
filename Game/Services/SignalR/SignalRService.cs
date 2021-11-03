@@ -12,7 +12,7 @@ namespace Game.Services
         public event Action<int> MatchIdReceived;
         public event Action<string> OnGameJoinFailureReceived;
         public event Action<string, int> OnGameStartSignalReceived;
-        public event Action<int[], int[]> OnReceiveCardDecks;
+        public event Action<int[], int[], int[], int[]> OnReceiveCardDecks;
         public event Action<bool> OnReceiveEndTurn;
 
         public MatchStats MatchStats;
@@ -30,8 +30,8 @@ namespace Game.Services
             _connection.On<string, int>(NetworkCall.StartGame,
                 (opponentUsername, matchId) => OnGameStartSignalReceived?.Invoke(opponentUsername, matchId));
 
-            _connection.On<int[], int[]>(NetworkCall.ReceiveCardDecks,
-                (heroCards, opponentCards) => OnReceiveCardDecks?.Invoke(heroCards, opponentCards));
+            _connection.On<int[], int[], int[], int[]>(NetworkCall.ReceiveCardDecks,
+                (heroCards, heroHPs, opponentCards, opponentHPs) => OnReceiveCardDecks?.Invoke(heroCards, heroHPs, opponentCards,opponentHPs));
 
             _connection.On<bool>(NetworkCall.ReceiveEndTurn, buttonStatus => OnReceiveEndTurn.Invoke(buttonStatus));
         }
@@ -51,14 +51,26 @@ namespace Game.Services
             await _connection.SendAsync(NetworkCall.JoinGame, matchId, username);
         }
 
-        public async Task PlaceCard(int cardId)
+        public async Task PlaceCard((int cardId, int cardHp) card)
         {
             await _connection.SendAsync(
                 NetworkCall.PlaceCard,
                 MatchStats.GetMatchId(),
-                cardId,
+                card.cardId,
+                card.cardHp,
                 MatchStats.GetHeroUsername()
             );
+        }
+
+        public async Task MonsterAttack(int attackerId, int attackerOffense, int deffenderId, int deffenderHp)
+        {
+            await _connection.SendAsync(NetworkCall.MonsterAttack,
+                MatchStats.GetMatchId(),
+                MatchStats.GetHeroUsername(),
+                attackerId,
+                attackerOffense,
+                deffenderId,
+                deffenderHp);
         }
 
         public async Task EndTurn()

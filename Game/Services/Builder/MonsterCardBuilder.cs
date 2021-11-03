@@ -28,7 +28,7 @@ namespace Game.Services.Builder
         {
             Result.Attack = attack;
             Result.Defense = defense;
-
+            Result.CurrentHp = defense;
             return this;
         }
 
