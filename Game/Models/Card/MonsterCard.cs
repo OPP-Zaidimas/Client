@@ -9,6 +9,7 @@ namespace Game.Models.Card
         public string Description { get; set; }
         public int? Attack { get; set; }
         public int? Defense { get; set; }
+        public int CurrentHp { get; set; }
 
         public MonsterCard() { }
 
@@ -18,6 +19,7 @@ namespace Game.Models.Card
             Description = description;
             Attack = attack;
             Defense = defense;
+            CurrentHp = (int)defense;
         }
 
         public MonsterCard(MonsterCard other)

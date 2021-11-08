@@ -16,6 +16,8 @@ namespace Game.ViewModels
 
         public int? Defense { get; }
 
+        public int CurrentHp { get; set; }
+
         public Color? BackgroundColor { get; private set; }
 
         public CardViewModel(ICard c)
@@ -25,8 +27,13 @@ namespace Game.ViewModels
             Description = c.Description;
             Attack = c.Attack;
             Defense = c.Defense;
-
+            CurrentHp = (int) c.Defense;
             SelectBackgroundColor(c);
+        }
+
+        public void SetCurrentHp(int value)
+        {
+            CurrentHp = value;
         }
 
         private void SelectBackgroundColor(ICard c)

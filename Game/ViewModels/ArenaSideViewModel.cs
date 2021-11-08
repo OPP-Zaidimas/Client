@@ -5,16 +5,30 @@ namespace Game.ViewModels
 {
     public class ArenaSideViewModel : IObservable
     {
-        public int[] Cards { get; }
+        public (int cardId, int cardHp)[] Cards { get => _cards; set
+            {
+                _cards = value;
+            }
+        }
+
+        private (int cardId, int cardHp)[] _cards;
 
         private readonly List<IObserver> _observers;
 
         public ArenaSideViewModel(int length)
         {
-            Cards = new int[length];
             _observers = new List<IObserver>();
+            Cards = new (int,int)[length];
         }
 
+        public void UpdateCards(int[] cards, int[] hps)
+        {
+            for(int i = 0; i < cards.Length; i++)
+            {
+                Cards[i] = (cards[i], hps[i]);
+            }
+            Notify();
+        }
 
         public void Subscribe(IObserver observer)
         {
