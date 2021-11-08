@@ -17,10 +17,11 @@ namespace Game.Commands
             this.service = service;
         }
 
-        public void execute()
+        public async Task<bool> Execute()
         {
             //logic for ending the turn
-            service.EndTurn();
+            await service.EndTurn();
+            return true;
         }
     }
 }

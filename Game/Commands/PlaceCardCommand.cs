@@ -9,9 +9,9 @@ namespace Game.Commands
 {
     class PlaceCardCommand : IUndoableCommand
     {
-        public void execute()
+        public Task<bool> Execute()
         {
-            
+            throw new NotImplementedException();
         }
 
         public void undo()

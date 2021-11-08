@@ -11,6 +11,8 @@ namespace Game.ViewModels
             }
         }
 
+        private bool[] _cardStatus;
+
         private (int cardId, int cardHp)[] _cards;
 
         private readonly List<IObserver> _observers;
@@ -19,6 +21,8 @@ namespace Game.ViewModels
         {
             _observers = new List<IObserver>();
             Cards = new (int,int)[length];
+            _cardStatus = new bool[length];
+            ResetCardStatus();
         }
 
         public void UpdateCards(int[] cards, int[] hps)
@@ -28,6 +32,25 @@ namespace Game.ViewModels
                 Cards[i] = (cards[i], hps[i]);
             }
             Notify();
+        }
+
+        public void ResetCardStatus()
+        {
+            for(int i = 0; i < _cardStatus.Length; i++)
+            {
+                _cardStatus[i] = false;
+            }
+            Notify();
+        }
+
+        public void SetCardStatus(int id, bool value)
+        {
+            _cardStatus[id] = value;
+        }
+
+        public bool GetStatusAtId(int id)
+        {
+            return _cardStatus[id];
         }
 
         public void Subscribe(IObserver observer)

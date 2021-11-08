@@ -8,6 +8,6 @@ namespace Game.Interfaces
 {
     interface ICommand
     {
-        public void execute();
+        public Task<bool> Execute();
     }
 }

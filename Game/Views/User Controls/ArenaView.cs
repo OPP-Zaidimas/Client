@@ -41,6 +41,8 @@ namespace Game.Views.User_Controls
         }
         (int, CardView) herocard = (0, null);
 
+        private bool _isMyTurn;
+
         public ArenaView(string playerName, string enemyName, IHero playerHero, IHero enemyHero, SignalRService service,
             MatchStats matchStats) : this()
         {
@@ -55,7 +57,7 @@ namespace Game.Views.User_Controls
             _drawCard = new DrawCardCommand(_deck, this.HandView);
 
             service.OnReceiveCardDecks += OnCardsUpdateReceived;
-            service.OnReceiveEndTurn += UpdateButtons;
+            service.OnReceiveEndTurn += EndTurn;
             _service = service;
         }
 
@@ -79,8 +81,19 @@ namespace Game.Views.User_Controls
             //visualize in different arena sides
             PlayerArenaSide.ViewModel.UpdateCards(heroCards, heroHPs);
             EnemyArenaSide.ViewModel.UpdateCards(opponentCards, opponentHPs);
-            PlayerArenaSide.UpdateCardDeck(heroCards, heroHPs);
-            EnemyArenaSide.UpdateCardDeck(opponentCards, opponentHPs);
+            PlayerArenaSide.UpdateCardDeck(heroCards, heroHPs, _isMyTurn);
+            EnemyArenaSide.UpdateCardDeck(opponentCards, opponentHPs, false);
+        }
+
+        public void EndTurn(bool buttonStatus)
+        {
+            _isMyTurn = buttonStatus;
+            UpdateButtons(buttonStatus);
+            if(buttonStatus)
+            {
+                _drawCard.Execute();
+                PlayerArenaSide.ViewModel.ResetCardStatus();
+            }
         }
 
         public void UpdateButtons(bool buttonStatus)
@@ -104,6 +117,8 @@ namespace Game.Views.User_Controls
                 _service.MonsterAttack(_chosenCard.Item1, (int) _chosenCard.Item2.ViewModel.Attack, id, cardView.ViewModel.CurrentHp);
             //disable enemyarenaside cards
             EnemyArenaSide.ChangeCardsSelectionStatus(false);
+            //disable attacker
+            PlayerArenaSide.ViewModel.SetCardStatus(_chosenCard.Item1, true);
         }
 
         private static void SetUsername(ArenaSide arenaSide, string username, string heroName)
@@ -113,14 +128,18 @@ namespace Game.Views.User_Controls
             if (arenaSide.IsHandleCreated) arenaSide.Username = text;
         }
 
-        private void DrawCardButton_Click(object sender, EventArgs e)
+        private async void DrawCardButton_Click(object sender, EventArgs e)
         {
-            _drawCard.execute();
+            if(! (await _drawCard.Execute()))
+            {
+                MessageBox.Show("The hand is full");
+            }
+            DrawCardButton.Enabled = false;
         }
 
-        private void EndTurnButton_Click(object sender, EventArgs e)
+        private async void EndTurnButton_Click(object sender, EventArgs e)
         {
-            _endturn.execute();
+            await _endturn.Execute();
         }
     }
 }
