@@ -54,7 +54,7 @@ namespace Game.Views.User_Controls
 //            UpdateCardDeck(ViewModel.Cards);
         }
 
-        public void UpdateCardDeck(int[] ids, int[] hps)
+        public void UpdateCardDeck(int[] ids, int[] hps, bool isPlayerSide)
         {
             for (int i = 0; i < ids.Length; i++) 
             {
@@ -65,7 +65,7 @@ namespace Game.Views.User_Controls
                     card.ViewModel.CurrentHp = hps[i];
                     card.UpdateCardInfo();
                 }
-                button.Enabled = card.ViewModel != null;
+                button.Enabled = card.ViewModel != null && !ViewModel.GetStatusAtId(i) && isPlayerSide;
             }
         }
 
@@ -145,7 +145,7 @@ namespace Game.Views.User_Controls
         {
             foreach((CardView, Button) control in _controls)
             {
-                if(control.Item1 == null)
+                if(control.Item1.ViewModel == null)
                 {
                     control.Item2.Enabled = false;
                 }

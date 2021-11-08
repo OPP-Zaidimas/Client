@@ -144,6 +144,7 @@ namespace Game.Views.User_Controls
             this.DrawCardButton.TabIndex = 5;
             this.DrawCardButton.Text = "Draw GameCard";
             this.DrawCardButton.UseVisualStyleBackColor = true;
+            this.DrawCardButton.Visible = false;
             this.DrawCardButton.Click += new System.EventHandler(this.DrawCardButton_Click);
             // 
             // ArenaView

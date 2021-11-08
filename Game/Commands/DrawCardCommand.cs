@@ -22,11 +22,15 @@ namespace Game.Commands
             _deck = deck;
         }
 
-        public void execute()
+        public async Task<bool> Execute()
         {
-            var card = _deck.Draw();
-
-            _handView.AddCard(card);
+            if(_handView.CheckHandStatus)
+            {
+                var card = _deck.Draw();
+                _handView.AddCard(card);
+                return true;
+            }
+            return false;
         }
     }
 }

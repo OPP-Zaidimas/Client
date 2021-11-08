@@ -14,6 +14,26 @@ namespace Game.Views.User_Controls
         private readonly HandViewModel _viewModel;
         private readonly (CardView, Button)[] _controls;
 
+        private const int TotalCardPlacements = 2;
+
+        private int _cardsPlaced = 0;
+
+        public bool CheckHandStatus
+        {
+            get
+            {
+                for (int i = 0; i < _viewModel.Cards.Length; i++)
+                {
+                    if (_viewModel.Cards[i] != null)
+                    {
+                        continue;
+                    }
+                    return true;
+                }
+                return false;
+            }
+        }
+
         public HandView()
         {
             InitializeComponent();
@@ -42,6 +62,7 @@ namespace Game.Views.User_Controls
         public void RegisterSignalR(SignalRService signalR)
         {
             _service = signalR;
+            _cardsPlaced = 0;
             _service.OnReceiveEndTurn += UpdatePlaceButtons;
         }
 
@@ -68,7 +89,7 @@ namespace Game.Views.User_Controls
             {
                 var (cardView, button) = _controls[i];
 
-                button.Enabled = cards[i] != null;
+                button.Enabled = cards[i] != null && _cardsPlaced != TotalCardPlacements;
                 cardView.ViewModel = cards[i] != null ? new CardViewModel(cards[i]) : null;
             }
         }
@@ -119,6 +140,7 @@ namespace Game.Views.User_Controls
             {
                 Invoke((MethodInvoker)delegate { _viewModel.RemoveCard(index); });
             });
+            _cardsPlaced++;
         }
     }
 }
