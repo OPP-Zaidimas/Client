@@ -4,6 +4,7 @@ using Game.Interfaces;
 using Game.Models.Card;
 using Game.Services;
 using Game.ViewModels;
+using System.Linq;
 
 namespace Game.Views.User_Controls
 {
@@ -18,21 +19,7 @@ namespace Game.Views.User_Controls
 
         private int _cardsPlaced = 0;
 
-        public bool CheckHandStatus
-        {
-            get
-            {
-                for (int i = 0; i < _viewModel.Cards.Length; i++)
-                {
-                    if (_viewModel.Cards[i] != null)
-                    {
-                        continue;
-                    }
-                    return true;
-                }
-                return false;
-            }
-        }
+        public bool CheckHandStatus => _viewModel.Cards.Any(t => t == null);
 
         public HandView()
         {
