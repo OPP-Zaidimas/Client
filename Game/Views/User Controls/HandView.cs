@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using Game.Interfaces;
 using Game.Models.Card;
 using Game.Services;
 using Game.ViewModels;
-using System.Linq;
 
 namespace Game.Views.User_Controls
 {
@@ -60,9 +60,9 @@ namespace Game.Views.User_Controls
 
         public void UpdatePlaceButtons(bool buttonStatus)
         {
-            for(int i = 0; i < _viewModel.Cards.Length; i++)
+            for (int i = 0; i < _viewModel.Cards.Length; i++)
             {
-                if(_viewModel.Cards[i]!=null)
+                if (_viewModel.Cards[i] != null)
                 {
                     var (_, button) = _controls[i];
                     button.Enabled = buttonStatus;

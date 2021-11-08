@@ -44,6 +44,7 @@ namespace Game.Views.User_Controls
             ViewModel = viewModel;
             ViewModel.Subscribe(this);
         }
+
         public void SetupOnSelectListener(Action<int, CardView> onSelectClicked)
         {
             OnSelectClicked = onSelectClicked;
@@ -56,7 +57,7 @@ namespace Game.Views.User_Controls
 
         public void UpdateCardDeck(int[] ids, int[] hps, bool isPlayerSide)
         {
-            for (int i = 0; i < ids.Length; i++) 
+            for (int i = 0; i < ids.Length; i++)
             {
                 var (card, button) = _controls[i];
                 card.ViewModel = ids[i] == -1 ? null : new CardViewModel(Builder.CreateCard(ids[i]));
@@ -65,16 +66,17 @@ namespace Game.Views.User_Controls
                     card.ViewModel.CurrentHp = hps[i];
                     card.UpdateCardInfo();
                 }
+
                 button.Enabled = card.ViewModel != null && !ViewModel.GetStatusAtId(i) && isPlayerSide;
             }
         }
 
         public void UpdateHPs(int[] hps)
         {
-            for(int i = 0; i < hps.Length; i++)
+            for (int i = 0; i < hps.Length; i++)
             {
                 var (card, button) = _controls[i];
-                if(hps[i] == 0)
+                if (hps[i] == 0)
                 {
                     card.ViewModel = null;
                 }
@@ -143,17 +145,12 @@ namespace Game.Views.User_Controls
 
         public void ChangeCardsSelectionStatus(bool status)
         {
-            foreach((CardView, Button) control in _controls)
+            foreach (var (cardView, button) in _controls)
             {
-                if(control.Item1.ViewModel == null)
-                {
-                    control.Item2.Enabled = false;
-                }
-                else
-                {
-                    control.Item2.Enabled = status;
-                }
+                button.Enabled = cardView.ViewModel != null && status;
             }
         }
+
+        private void HeroSelectButton_Click(object sender, EventArgs e) { }
     }
 }
