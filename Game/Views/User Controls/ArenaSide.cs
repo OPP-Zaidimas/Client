@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using Game.Interfaces;
 using Game.Services;
 using Game.ViewModels;
+using System.Linq;
 
 namespace Game.Views.User_Controls
 {
@@ -18,12 +19,25 @@ namespace Game.Views.User_Controls
             }
         }
 
+        public string HeroHP
+        {
+            set
+            {
+                void SetHP() => HeroHpLabel.Text = value;
+
+                Invoke((MethodInvoker)SetHP);
+            }
+        }
+
         private event Action<int, CardView> OnSelectClicked;
+        private event Action OnHeroSelectClicked;
 
         public ArenaSideViewModel ViewModel { get; set; }
         public CardBuilder Builder { get; set; }
 
         private readonly (CardView, Button)[] _controls;
+
+        public bool CanAttackHero => _controls.All(t => t.Item1.ViewModel == null);
 
         public ArenaSide()
         {
@@ -39,6 +53,21 @@ namespace Game.Views.User_Controls
             };
         }
 
+        public void MakeHeroSelectButtonInvisible()
+        {
+            HeroSelectButton.Visible = false;
+        }
+
+        public void DisableHeroSelection()
+        {
+            HeroSelectButton.Enabled = false;
+        }
+
+        public void EnableHeroSelection()
+        {
+            HeroSelectButton.Enabled = true;
+        }
+
         public ArenaSide(ArenaSideViewModel viewModel) : this()
         {
             ViewModel = viewModel;
@@ -48,6 +77,11 @@ namespace Game.Views.User_Controls
         public void SetupOnSelectListener(Action<int, CardView> onSelectClicked)
         {
             OnSelectClicked = onSelectClicked;
+        }
+
+        public void SetupOnHeroSelectListener(Action onHeroSelected)
+        {
+            OnHeroSelectClicked = onHeroSelected;
         }
 
         public void Update(IObservable observable)
@@ -151,6 +185,9 @@ namespace Game.Views.User_Controls
             }
         }
 
-        private void HeroSelectButton_Click(object sender, EventArgs e) { }
+        private void HeroSelectButton_Click(object sender, EventArgs e) 
+        {
+            OnHeroSelectClicked.Invoke();
+        }
     }
 }

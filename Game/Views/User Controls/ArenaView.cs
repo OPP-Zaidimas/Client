@@ -50,12 +50,16 @@ namespace Game.Views.User_Controls
 
             SetupArenaSide(PlayerArenaSide, playerName, playerHero.Name, _playerArenaViewModel, PlayerArenaSelectClicked);
             SetupArenaSide(EnemyArenaSide, enemyName, enemyHero.Name, _enemyArenaViewModel, EnemyArenaSelectClicked);
+            PlayerArenaSide.MakeHeroSelectButtonInvisible();
+            EnemyArenaSide.DisableHeroSelection();
+            EnemyArenaSide.SetupOnHeroSelectListener(HeroSelectClicked);
 
             HandView.RegisterSignalR(service);
             
             _endturn = new EndTurnCommand(service);
             _drawCard = new DrawCardCommand(_deck, this.HandView);
 
+            service.OnReceiveHeroHPs += UpdateHeroHPs;
             service.OnReceiveCardDecks += OnCardsUpdateReceived;
             service.OnReceiveEndTurn += EndTurn;
             _service = service;
@@ -65,6 +69,21 @@ namespace Game.Views.User_Controls
         {
             PlayerArenaSide.UpdateHPs(herohps);
             EnemyArenaSide.UpdateHPs(opponenthps);
+        }
+
+        public void UpdateHeroHPs(int heroCurHp, int heroMaxHp, int oppCurHp, int oppMaxHp)
+        {
+            //updating hps
+            PlayerArenaSide.HeroHP = $"HP: {heroCurHp}/{heroMaxHp}";
+            EnemyArenaSide.HeroHP = $"HP: {oppCurHp}/{oppMaxHp}";
+            if (heroCurHp == 0)
+            {
+                MessageBox.Show("You lost...");
+            }
+            else if(oppCurHp==0)
+            {
+                MessageBox.Show("You won!");
+            }
         }
 
         private static void SetupArenaSide(ArenaSide arenaSide, string username, string heroName,
@@ -107,7 +126,24 @@ namespace Game.Views.User_Controls
         public void PlayerArenaSelectClicked(int id, CardView cardView)
         {
             _chosenCard = (id, cardView);
-            EnemyArenaSide.ChangeCardsSelectionStatus(true);
+            if(EnemyArenaSide.CanAttackHero)
+            {
+                EnemyArenaSide.EnableHeroSelection();
+            }
+            else
+            {
+                EnemyArenaSide.ChangeCardsSelectionStatus(true);
+            }
+        }
+
+        public void HeroSelectClicked()
+        {
+            if(_chosenCard.Item2!=null)
+            {
+                _service.AttackOnHero((int) _chosenCard.Item2.ViewModel.Attack);
+            }
+            EnemyArenaSide.DisableHeroSelection();
+
         }
 
         public void EnemyArenaSelectClicked(int id, CardView cardView)

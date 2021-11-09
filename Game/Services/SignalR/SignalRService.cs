@@ -14,6 +14,7 @@ namespace Game.Services
         public event Action<string, int> OnGameStartSignalReceived;
         public event Action<int[], int[], int[], int[]> OnReceiveCardDecks;
         public event Action<bool> OnReceiveEndTurn;
+        public event Action<int, int, int, int> OnReceiveHeroHPs;
 
         public MatchStats MatchStats;
 
@@ -31,9 +32,14 @@ namespace Game.Services
                 (opponentUsername, matchId) => OnGameStartSignalReceived?.Invoke(opponentUsername, matchId));
 
             _connection.On<int[], int[], int[], int[]>(NetworkCall.ReceiveCardDecks,
-                (heroCards, heroHPs, opponentCards, opponentHPs) => OnReceiveCardDecks?.Invoke(heroCards, heroHPs, opponentCards,opponentHPs));
+                (heroCards, heroHPs, opponentCards, opponentHPs) => 
+                OnReceiveCardDecks?.Invoke(heroCards, heroHPs, opponentCards,opponentHPs));
 
             _connection.On<bool>(NetworkCall.ReceiveEndTurn, buttonStatus => OnReceiveEndTurn.Invoke(buttonStatus));
+
+            _connection.On<int, int, int, int>(NetworkCall.ReceiveHeroHPs, 
+                (heroCurrentHp, heroMaxHp, opponentCurrentHp, opponentMaxHp) =>
+                OnReceiveHeroHPs?.Invoke(heroCurrentHp, heroMaxHp, opponentCurrentHp, opponentMaxHp));
         }
 
         public async Task Connect()
@@ -81,6 +87,13 @@ namespace Game.Services
         public void RegisterMatchStats(MatchStats stats)
         {
             MatchStats = stats;
+        }
+        public async Task AttackOnHero(int attackerOffense)
+        {
+            await _connection.SendAsync(NetworkCall.AttackOnHero, 
+                MatchStats.GetMatchId(), 
+                MatchStats.GetEnemyUsername(), 
+                attackerOffense);
         }
     }
 }

@@ -95,7 +95,6 @@ namespace Game.Views.User_Controls
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::Game.Assets.Images.Card_Back;
             this.pictureBox1.Location = new System.Drawing.Point(4, 3);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pictureBox1.Name = "pictureBox1";
@@ -107,7 +106,6 @@ namespace Game.Views.User_Controls
             // pictureBox2
             // 
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Image = global::Game.Assets.Images.Card_Back;
             this.pictureBox2.Location = new System.Drawing.Point(4, 85);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pictureBox2.Name = "pictureBox2";

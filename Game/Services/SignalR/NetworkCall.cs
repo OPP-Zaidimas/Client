@@ -13,6 +13,9 @@
         public const string ReceiveEndTurn = "ReceiveEndTurn";
         public const string MonsterAttack = "MonsterAttack";
         public const string ReceiveHPs = "ReceiveHPs";
+        public const string ReceiveHeroHPs = "ReceiveHeroHPs";
+
+        public const string AttackOnHero = "AttackOnHero";
 
         public const string EndTurn = "EndTurn";
         
