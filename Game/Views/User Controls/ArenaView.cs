@@ -31,7 +31,7 @@ namespace Game.Views.User_Controls
         {
             InitializeComponent();
 
-            _builder = new CardBuilder(new MonsterCardBuilder());
+            _builder = new CardBuilder(new MonsterCardBuilder(), new SpellCardBuilder());
             _deck = new Deck(new DamagingCardFactory(), _builder);
             _playerArenaViewModel = new ArenaSideViewModel(ArenaCardLimit);
             _enemyArenaViewModel = new ArenaSideViewModel(ArenaCardLimit);
