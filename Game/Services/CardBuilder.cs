@@ -6,8 +6,8 @@ namespace Game.Services
 {
     public class CardBuilder
     {
-        private readonly MonsterCardBuilder _monsterCard;
-        private readonly SpellCardBuilder _spellCard;
+        private readonly MonsterCardBuilder _monsterCardBuilder;
+        private readonly SpellCardBuilder _spellCardBuilder;
 
 
         private readonly (string, string, int, int)[] _cardInfo =
@@ -21,27 +21,23 @@ namespace Game.Services
 
         private static (string, string, int, int) DefaultCard => ("Default", "Placeholder", 1, 1);
 
-        public CardBuilder(MonsterCardBuilder monsterCardBUilder, SpellCardBuilder spellCardBuilder)
+        public CardBuilder(MonsterCardBuilder monsterCardBuilder, SpellCardBuilder spellCardBuilder)
         {
-            _monsterCard = monsterCardBUilder;
-            _spellCard = spellCardBuilder;
-
+            _monsterCardBuilder = monsterCardBuilder;
+            _spellCardBuilder = spellCardBuilder;
         }
 
-        public ICard CreateCard(int id) 
+        public ICard CreateCard(int id)
         {
-            if( id <= 5)
+            if (id <= 5)
             {
                 return CreateMonsterCard(id);
             }
-            else
-            {
-                return CreateSpellCard(id);
-            }
-            
+
+            return CreateSpellCard(id);
         }
-            
-        
+
+
         private MonsterCard CreateMonsterCard(int id)
         {
             (string title, string desc, int atk, int def) info;
@@ -54,22 +50,22 @@ namespace Game.Services
                 info = DefaultCard;
             }
 
-            var card = _monsterCard.CreateCard(id)
+            var card = _monsterCardBuilder.CreateCard(id)
                 .WithCardInformation(info.title, info.desc)
                 .WithStats(info.atk, info.def)
                 .Result;
 
             return card as MonsterCard;
         }
+
         private SpellCard CreateSpellCard(int id)
-        {           
-            var card = _spellCard.CreateCard(id)
+        {
+            var card = _spellCardBuilder.CreateCard(id)
                 .WithCardInformation("spellCard", "spell")
                 .WithEffect(new SpellEffect(2))
                 .Result;
 
             return card as SpellCard;
         }
-     
     }
 }

@@ -21,7 +21,7 @@ namespace Game.Models
 
         public ICard Draw()
         {
-            int id = _rnd.Next(1, 5);
+            int id = _rnd.Next(1, 6);
             var card = _builder.CreateCard(id);
 
             return card;
