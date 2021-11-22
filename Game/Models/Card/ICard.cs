@@ -1,4 +1,6 @@
-﻿namespace Game.Models.Card
+﻿using System.Drawing;
+
+namespace Game.Models.Card
 {
     public interface ICard
     {
@@ -13,5 +15,7 @@
         public int? Defense { get; set; }
 
         public int CurrentHp { get; set; }
+
+        public Image Image { get; set; }
     }
 }

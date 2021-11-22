@@ -35,8 +35,10 @@ namespace Game.Views.User_Controls
             this.DefLabel = new System.Windows.Forms.Label();
             this.TitleLabel = new System.Windows.Forms.Label();
             this.DescriptionLabel = new System.Windows.Forms.Label();
+            this.CardImageBox = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CardImageBox)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -47,6 +49,7 @@ namespace Game.Views.User_Controls
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.TitleLabel, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.DescriptionLabel, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.CardImageBox, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(8);
@@ -125,6 +128,19 @@ namespace Game.Views.User_Controls
             this.DescriptionLabel.TabIndex = 2;
             this.DescriptionLabel.Text = "Description";
             // 
+            // CardImageBox
+            // 
+            this.CardImageBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CardImageBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CardImageBox.Image = global::Game.Assets.Images.ErrorIcon;
+            this.CardImageBox.Location = new System.Drawing.Point(7, 44);
+            this.CardImageBox.Margin = new System.Windows.Forms.Padding(2);
+            this.CardImageBox.Name = "CardImageBox";
+            this.CardImageBox.Size = new System.Drawing.Size(238, 175);
+            this.CardImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.CardImageBox.TabIndex = 3;
+            this.CardImageBox.TabStop = false;
+            // 
             // CardView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -137,6 +153,7 @@ namespace Game.Views.User_Controls
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CardImageBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -149,5 +166,6 @@ namespace Game.Views.User_Controls
         private System.Windows.Forms.Label DefLabel;
         private System.Windows.Forms.Label TitleLabel;
         private System.Windows.Forms.Label DescriptionLabel;
+        private System.Windows.Forms.PictureBox CardImageBox;
     }
 }

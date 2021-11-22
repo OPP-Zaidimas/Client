@@ -119,6 +119,27 @@
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="Card_Back" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>card back.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>images\card back.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ErrorIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\erroricon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\monster1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\monster2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\monster3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\monster4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monster5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\monster5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Spell1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>images\spell1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

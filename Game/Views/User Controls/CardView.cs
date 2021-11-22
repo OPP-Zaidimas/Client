@@ -31,6 +31,7 @@ namespace Game.Views.User_Controls
         {
             UpdateContent(ViewModel);
         }
+
         private void UpdateContent(CardViewModel viewModel)
         {
             if (viewModel == null)
@@ -44,6 +45,7 @@ namespace Game.Views.User_Controls
             DescriptionLabel.Text = viewModel.Description;
             AtkLabel.Text = viewModel.Attack.ToString();
             DefLabel.Text = viewModel.CurrentHp.ToString();
+            CardImageBox.Image = viewModel.CardImage;
 
             BackColor = viewModel.BackgroundColor ?? BackColor;
         }
