@@ -25,9 +25,9 @@ namespace Game.ViewModels
             Id = c.Id;
             Title = c.Title;
             Description = c.Description;
-            Attack = c.Attack;
-            Defense = c.Defense;
-            CurrentHp = (int) c.Defense;
+            Attack = c.Attack ?? 0;
+            Defense = c.Defense ?? 0;
+            CurrentHp = c.Defense ?? 0;
             SelectBackgroundColor(c);
         }
 
@@ -38,10 +38,12 @@ namespace Game.ViewModels
 
         private void SelectBackgroundColor(ICard c)
         {
-            if (c is MonsterCard)
+            BackgroundColor = c switch
             {
-                BackgroundColor = CardColors.MonsterBackgroundColor;
-            }
+                MonsterCard => CardColors.MonsterBackgroundColor,
+                SpellCard => CardColors.SpellBackgroundColor,
+                _ => BackgroundColor
+            };
         }
     }
 }

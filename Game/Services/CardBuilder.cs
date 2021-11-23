@@ -6,7 +6,9 @@ namespace Game.Services
 {
     public class CardBuilder
     {
-        private readonly MonsterCardBuilder _builder;
+        private readonly MonsterCardBuilder _monsterCardBuilder;
+        private readonly SpellCardBuilder _spellCardBuilder;
+
 
         private readonly (string, string, int, int)[] _cardInfo =
         {
@@ -19,12 +21,24 @@ namespace Game.Services
 
         private static (string, string, int, int) DefaultCard => ("Default", "Placeholder", 1, 1);
 
-        public CardBuilder(MonsterCardBuilder builder)
+        public CardBuilder(MonsterCardBuilder monsterCardBuilder, SpellCardBuilder spellCardBuilder)
         {
-            _builder = builder;
+            _monsterCardBuilder = monsterCardBuilder;
+            _spellCardBuilder = spellCardBuilder;
         }
 
-        public MonsterCard CreateCard(int id)
+        public ICard CreateCard(int id)
+        {
+            if (id <= 5)
+            {
+                return CreateMonsterCard(id);
+            }
+
+            return CreateSpellCard(id);
+        }
+
+
+        private MonsterCard CreateMonsterCard(int id)
         {
             (string title, string desc, int atk, int def) info;
             try
@@ -36,12 +50,22 @@ namespace Game.Services
                 info = DefaultCard;
             }
 
-            var card = _builder.CreateCard(id)
+            var card = _monsterCardBuilder.CreateCard(id)
                 .WithCardInformation(info.title, info.desc)
                 .WithStats(info.atk, info.def)
                 .Result;
 
             return card as MonsterCard;
+        }
+
+        private SpellCard CreateSpellCard(int id)
+        {
+            var card = _spellCardBuilder.CreateCard(id)
+                .WithCardInformation("spellCard", "spell")
+                .WithEffect(new SpellEffect(2))
+                .Result;
+
+            return card as SpellCard;
         }
     }
 }

@@ -31,7 +31,7 @@ namespace Game.Views.User_Controls
         {
             InitializeComponent();
 
-            _builder = new CardBuilder(new MonsterCardBuilder());
+            _builder = new CardBuilder(new MonsterCardBuilder(), new SpellCardBuilder());
             _deck = new Deck(new DamagingCardFactory(), _builder);
             _playerArenaViewModel = new ArenaSideViewModel(ArenaCardLimit);
             _enemyArenaViewModel = new ArenaSideViewModel(ArenaCardLimit);
@@ -39,7 +39,6 @@ namespace Game.Views.User_Controls
             PlayerArenaSide.Builder = _builder;
             EnemyArenaSide.Builder = _builder;
         }
-        (int, CardView) herocard = (0, null);
 
         private bool _isMyTurn;
 
@@ -48,14 +47,15 @@ namespace Game.Views.User_Controls
         {
             service.RegisterMatchStats(matchStats);
 
-            SetupArenaSide(PlayerArenaSide, playerName, playerHero.Name, _playerArenaViewModel, PlayerArenaSelectClicked);
+            SetupArenaSide(PlayerArenaSide, playerName, playerHero.Name, _playerArenaViewModel,
+                PlayerArenaSelectClicked);
             SetupArenaSide(EnemyArenaSide, enemyName, enemyHero.Name, _enemyArenaViewModel, EnemyArenaSelectClicked);
             PlayerArenaSide.MakeHeroSelectButtonInvisible();
             EnemyArenaSide.DisableHeroSelection();
             EnemyArenaSide.SetupOnHeroSelectListener(HeroSelectClicked);
 
             HandView.RegisterSignalR(service);
-            
+
             _endturn = new EndTurnCommand(service);
             _drawCard = new DrawCardCommand(_deck, this.HandView);
 
@@ -80,7 +80,7 @@ namespace Game.Views.User_Controls
             {
                 MessageBox.Show("You lost...");
             }
-            else if(oppCurHp==0)
+            else if (oppCurHp == 0)
             {
                 MessageBox.Show("You won!");
             }
@@ -108,7 +108,7 @@ namespace Game.Views.User_Controls
         {
             _isMyTurn = buttonStatus;
             UpdateButtons(buttonStatus);
-            if(buttonStatus)
+            if (buttonStatus)
             {
                 _drawCard.Execute();
                 PlayerArenaSide.ViewModel.ResetCardStatus();
@@ -126,7 +126,7 @@ namespace Game.Views.User_Controls
         public void PlayerArenaSelectClicked(int id, CardView cardView)
         {
             _chosenCard = (id, cardView);
-            if(EnemyArenaSide.CanAttackHero)
+            if (EnemyArenaSide.CanAttackHero)
             {
                 EnemyArenaSide.EnableHeroSelection();
             }
@@ -138,19 +138,20 @@ namespace Game.Views.User_Controls
 
         public void HeroSelectClicked()
         {
-            if(_chosenCard.Item2!=null)
+            if (_chosenCard.Item2 != null)
             {
-                _service.AttackOnHero((int) _chosenCard.Item2.ViewModel.Attack);
+                _service.AttackOnHero((int)_chosenCard.Item2.ViewModel.Attack);
             }
-            EnemyArenaSide.DisableHeroSelection();
 
+            EnemyArenaSide.DisableHeroSelection();
         }
 
         public void EnemyArenaSelectClicked(int id, CardView cardView)
         {
             //send indices and hps to server
-            if(_chosenCard.Item2!=null)
-                _service.MonsterAttack(_chosenCard.Item1, (int) _chosenCard.Item2.ViewModel.Attack, id, cardView.ViewModel.CurrentHp);
+            if (_chosenCard.Item2 != null)
+                _service.MonsterAttack(_chosenCard.Item1, (int)_chosenCard.Item2.ViewModel.Attack, id,
+                    cardView.ViewModel.CurrentHp);
             //disable enemyarenaside cards
             EnemyArenaSide.ChangeCardsSelectionStatus(false);
             //disable attacker
@@ -166,10 +167,11 @@ namespace Game.Views.User_Controls
 
         private async void DrawCardButton_Click(object sender, EventArgs e)
         {
-            if(! (await _drawCard.Execute()))
+            if (!(await _drawCard.Execute()))
             {
                 MessageBox.Show("The hand is full");
             }
+
             DrawCardButton.Enabled = false;
         }
 
