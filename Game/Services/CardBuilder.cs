@@ -67,6 +67,7 @@ namespace Game.Services
             var card = _spellCardBuilder.CreateCard(id)
                 .WithCardInformation("spellCard", "spell")
                 .WithEffect(new SpellEffect(2))
+                .WithImage(Images.Spell1)
                 .Result;
 
             return card as SpellCard;

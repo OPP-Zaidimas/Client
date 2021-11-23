@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace Game.Models.Card
 {
-    class SpellCard : ICard
+    public class SpellCard : ICard, ICloneable<SpellCard>
     {
         public int Id { get ; set; }
         public string Title { get; set; }
@@ -14,17 +10,19 @@ namespace Game.Models.Card
         public int? Attack { get; set; }
         public int? Defense { get; set; }
         public int CurrentHp { get; set; }
+        public Image Image { get; set; }
         public IEffect Effect { get; set; }
         public SpellCard() { }
 
-        public SpellCard(string title, string description, int attack, int defense, IEffect effect)
+        public SpellCard(string title, string description, int attack, int defense, IEffect effect, Image image)
         {
             Title = title;
             Description = description;
             Attack = attack;
             Defense = defense;
-            CurrentHp = (int)defense;
+            CurrentHp = defense;
             Effect = effect;
+            Image = image;
         }
 
         public SpellCard(SpellCard other)
@@ -35,14 +33,12 @@ namespace Game.Models.Card
             Attack = other.Attack;
             Defense = other.Defense;
             Effect = other.Effect;
+            Image = other.Image;
         }
 
         public SpellCard Clone()
         {
             return new SpellCard(this);
         }
-
-        
     }
-
 }
