@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 
 namespace Game.Models.Card
 {
@@ -32,6 +33,7 @@ namespace Game.Models.Card
 
         public int EffectStrength { get; set; }
         public int CurrentHp { get; set; }
+        public Image Image { get; set; }
 
         public (int, int) ApplyEffect((int index, int hp) card_data)
         {

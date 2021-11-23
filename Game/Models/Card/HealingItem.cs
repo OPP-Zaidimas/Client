@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 
 namespace Game.Models.Card
 {
@@ -30,6 +31,7 @@ namespace Game.Models.Card
             set => throw new System.NotImplementedException();
         }
         public int CurrentHp { get; set; }
+        public Image Image { get; set; }
 
         public String ApplyEffect()
         {

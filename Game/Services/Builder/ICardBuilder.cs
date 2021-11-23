@@ -1,4 +1,5 @@
-﻿using Game.Models.Card;
+﻿using System.Drawing;
+using Game.Models.Card;
 
 namespace Game.Services.Builder
 {
@@ -11,6 +12,8 @@ namespace Game.Services.Builder
         public ICardBuilder WithStats(int attack, int defense);
 
         public ICardBuilder WithEffect(IEffect effect);
+
+        public ICardBuilder WithImage(Image image);
 
         public ICard Result { get; }
     }

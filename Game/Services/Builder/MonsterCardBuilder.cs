@@ -1,4 +1,5 @@
-﻿using Game.Models.Card;
+﻿using System.Drawing;
+using Game.Models.Card;
 
 namespace Game.Services.Builder
 {
@@ -34,6 +35,12 @@ namespace Game.Services.Builder
 
         public ICardBuilder WithEffect(IEffect effect)
         {
+            return this;
+        }
+
+        public ICardBuilder WithImage(Image image)
+        {
+            Result.Image = image;
             return this;
         }
     }

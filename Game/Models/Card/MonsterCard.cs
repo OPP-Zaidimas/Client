@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Drawing;
 
 namespace Game.Models.Card
 {
@@ -10,16 +10,18 @@ namespace Game.Models.Card
         public int? Attack { get; set; }
         public int? Defense { get; set; }
         public int CurrentHp { get; set; }
+        public Image Image { get; set; }
 
         public MonsterCard() { }
 
-        public MonsterCard(string title, string description, int attack, int defense)
+        public MonsterCard(string title, string description, int attack, int defense, Image image)
         {
             Title = title;
             Description = description;
             Attack = attack;
             Defense = defense;
-            CurrentHp = (int)defense;
+            CurrentHp = defense;
+            Image = image;
         }
 
         public MonsterCard(MonsterCard other)
@@ -29,6 +31,7 @@ namespace Game.Models.Card
             Description = other.Description;
             Attack = other.Attack;
             Defense = other.Defense;
+            Image = other.Image;
         }
 
         public MonsterCard Clone()
