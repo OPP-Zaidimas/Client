@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game.Models.Card
 {
-    class HealingEffect : EffectDecorator
+    class HealingEffect
     {
         HealingItem healingItem;
 
@@ -14,9 +14,9 @@ namespace Game.Models.Card
         {
             healingItem = h;
         }
-        public override String ApplyEffect()
+        public (int, int) ApplyEffect((int index, int hp) card_data, int effectStrength)
         {
-            return healingItem.ApplyEffect() + "It heals";
+            return (card_data.index, card_data.hp + effectStrength);
         }
     }
 }
