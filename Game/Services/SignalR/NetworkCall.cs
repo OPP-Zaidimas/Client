@@ -18,6 +18,8 @@
         public const string AttackOnHero = "AttackOnHero";
 
         public const string EndTurn = "EndTurn";
-        
+
+        public const string ReceivePlayerState = "ReceivePlayerState";
+
     }
 }

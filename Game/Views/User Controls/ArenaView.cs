@@ -62,6 +62,7 @@ namespace Game.Views.User_Controls
             service.OnReceiveHeroHPs += UpdateHeroHPs;
             service.OnReceiveCardDecks += OnCardsUpdateReceived;
             service.OnReceiveEndTurn += EndTurn;
+            service.OnReceivePlayerState += UpdatePlayerState;
             _service = service;
         }
 
@@ -156,6 +157,16 @@ namespace Game.Views.User_Controls
             EnemyArenaSide.ChangeCardsSelectionStatus(false);
             //disable attacker
             PlayerArenaSide.ViewModel.SetCardStatus(_chosenCard.Item1, true);
+        }
+
+        public void UpdatePlayerState(string heroState)
+        {
+            if(TurnLabel.IsHandleCreated)
+            {
+                void SetState() => TurnLabel.Text = heroState;
+
+                Invoke((MethodInvoker)SetState);
+            }
         }
 
         private static void SetUsername(ArenaSide arenaSide, string username, string heroName)

@@ -36,6 +36,7 @@ namespace Game.Views.User_Controls
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.EndTurnButton = new System.Windows.Forms.Button();
             this.DrawCardButton = new System.Windows.Forms.Button();
+            this.TurnLabel = new System.Windows.Forms.Label();
             this.ArenaLayoutPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -103,6 +104,7 @@ namespace Game.Views.User_Controls
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.EndTurnButton, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.DrawCardButton, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.TurnLabel, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 316);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
@@ -147,6 +149,17 @@ namespace Game.Views.User_Controls
             this.DrawCardButton.Visible = false;
             this.DrawCardButton.Click += new System.EventHandler(this.DrawCardButton_Click);
             // 
+            // TurnLabel
+            // 
+            this.TurnLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.TurnLabel.AutoSize = true;
+            this.TurnLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TurnLabel.Location = new System.Drawing.Point(415, 0);
+            this.TurnLabel.Name = "TurnLabel";
+            this.TurnLabel.Size = new System.Drawing.Size(51, 28);
+            this.TurnLabel.TabIndex = 6;
+            this.TurnLabel.Text = "Turn";
+            // 
             // ArenaView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -172,5 +185,6 @@ namespace Game.Views.User_Controls
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button EndTurnButton;
         private System.Windows.Forms.Button DrawCardButton;
+        private System.Windows.Forms.Label TurnLabel;
     }
 }
