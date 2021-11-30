@@ -80,12 +80,13 @@ namespace Game
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(251, 32);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(63, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 37);
+            this.label1.Size = new System.Drawing.Size(65, 28);
             this.label1.TabIndex = 9;
             this.label1.Text = "Status";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MatchIdForm
             // 

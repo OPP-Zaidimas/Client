@@ -38,12 +38,13 @@ namespace Game
             _service = service;
             InitializeComponent();
             _service.MatchIdReceived += _service_MatchIdReceived;
+            _service.CloseMatchWindow += ReceiveGameStart;
         }
 
         private void _service_MatchIdReceived(int matchId)
         {
             id = matchId;
-            MSG = "Your match id is: ";
+            MSG = "Waiting for Player 2 to join. Copy the following match id";
             MethodInvoker textUpdate = delegate { MatchIdTextField.Text = "" + id; };
             this.Invoke(textUpdate);
         }
@@ -73,6 +74,11 @@ namespace Game
             });
 
             return matchIdForm;
+        }
+
+        public void ReceiveGameStart()
+        {
+            this.Close();
         }
 
         private void CloseButton_Click(object sender, EventArgs e)

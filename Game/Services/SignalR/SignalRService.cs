@@ -15,6 +15,8 @@ namespace Game.Services
         public event Action<int[], int[], int[], int[]> OnReceiveCardDecks;
         public event Action<bool> OnReceiveEndTurn;
         public event Action<int, int, int, int> OnReceiveHeroHPs;
+        public event Action<string> OnReceivePlayerState;
+        public event Action CloseMatchWindow;
 
         public MatchStats MatchStats;
 
@@ -29,7 +31,11 @@ namespace Game.Services
                 failureMsg => OnGameJoinFailureReceived?.Invoke(failureMsg));
 
             _connection.On<string, int>(NetworkCall.StartGame,
-                (opponentUsername, matchId) => OnGameStartSignalReceived?.Invoke(opponentUsername, matchId));
+                (opponentUsername, matchId) => 
+                { 
+                    OnGameStartSignalReceived?.Invoke(opponentUsername, matchId);
+                    CloseMatchWindow.Invoke();
+                });
 
             _connection.On<int[], int[], int[], int[]>(NetworkCall.ReceiveCardDecks,
                 (heroCards, heroHPs, opponentCards, opponentHPs) => 
@@ -40,6 +46,9 @@ namespace Game.Services
             _connection.On<int, int, int, int>(NetworkCall.ReceiveHeroHPs, 
                 (heroCurrentHp, heroMaxHp, opponentCurrentHp, opponentMaxHp) =>
                 OnReceiveHeroHPs?.Invoke(heroCurrentHp, heroMaxHp, opponentCurrentHp, opponentMaxHp));
+
+            _connection.On<string>(NetworkCall.ReceivePlayerState, 
+                heroState => OnReceivePlayerState?.Invoke(heroState));
         }
 
         public async Task Connect()
