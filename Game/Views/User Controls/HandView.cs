@@ -123,11 +123,14 @@ namespace Game.Views.User_Controls
 
         private void PlaceCard(int index)
         {
-            _service.PlaceCard(_viewModel.IdAt(index)).ContinueWith(_ =>
+            if(_viewModel.Cards[index] is MonsterCard)
             {
-                Invoke((MethodInvoker)delegate { _viewModel.RemoveCard(index); });
-            });
-            _cardsPlaced++;
+                _service.PlaceCard(_viewModel.IdAt(index)).ContinueWith(_ =>
+                {
+                    Invoke((MethodInvoker)delegate { _viewModel.RemoveCard(index); });
+                });
+                _cardsPlaced++;
+            }
         }
     }
 }
