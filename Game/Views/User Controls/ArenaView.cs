@@ -159,13 +159,26 @@ namespace Game.Views.User_Controls
             PlayerArenaSide.ViewModel.SetCardStatus(_chosenCard.Item1, true);
         }
 
-        public void UpdatePlayerState(string heroState)
+        public void UpdatePlayerState(uint heroState)
         {
             if(TurnLabel.IsHandleCreated)
             {
-                void SetState() => TurnLabel.Text = heroState;
+                void SetState() => TurnLabel.Text = ConvertStateIDToText(heroState);
 
                 Invoke((MethodInvoker)SetState);
+            }
+        }
+
+        private string ConvertStateIDToText(uint id)
+        {
+            switch (id)
+            {
+                case 1:
+                    return "Your turn";
+                case 2:
+                    return "Opponent's turn";
+                default:
+                    return "";
             }
         }
 
