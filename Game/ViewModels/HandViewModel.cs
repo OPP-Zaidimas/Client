@@ -6,41 +6,31 @@ namespace Game.ViewModels
 {
     public class HandViewModel : IObservable
     {
-        public ICard[] Cards { get; }
-
+        public CardList Cards { get; }
 
         private readonly List<IObserver> _observers;
 
         public HandViewModel(int length)
         {
-            Cards = new ICard[length];
+            Cards = new CardList(length);
 
             _observers = new List<IObserver>();
         }
 
         public void AddCard(ICard card)
         {
-            for (int i = 0; i < Cards.Length; i++)
-            {
-                if (Cards[i] != null)
-                {
-                    continue;
-                }
-
-                Cards[i] = card;
-                Notify();
-                return;
-            }
+            Cards.Add(card);
+            Notify();
         }
 
         public (int, int) IdAt(int index)
         {
-            return (index,Cards[index].CurrentHp);
+            return (index, Cards[index].CurrentHp);
         }
 
         public void RemoveCard(int index)
         {
-            Cards[index] = null;
+            Cards.RemoveAt(index);
             Notify();
         }
 
