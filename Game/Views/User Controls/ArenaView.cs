@@ -161,7 +161,7 @@ namespace Game.Views.User_Controls
 
         public void UpdatePlayerState(uint heroState)
         {
-            if(TurnLabel.IsHandleCreated)
+            if (TurnLabel.IsHandleCreated)
             {
                 void SetState() => TurnLabel.Text = ConvertStateIDToText(heroState);
 
@@ -169,17 +169,14 @@ namespace Game.Views.User_Controls
             }
         }
 
-        private string ConvertStateIDToText(uint id)
+        private static string ConvertStateIDToText(uint id)
         {
-            switch (id)
+            return id switch
             {
-                case 1:
-                    return "Your turn";
-                case 2:
-                    return "Opponent's turn";
-                default:
-                    return "";
-            }
+                1 => "Your turn",
+                2 => "Opponent's turn",
+                _ => ""
+            };
         }
 
         private static void SetUsername(ArenaSide arenaSide, string username, string heroName)
