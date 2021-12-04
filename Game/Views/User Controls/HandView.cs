@@ -60,7 +60,7 @@ namespace Game.Views.User_Controls
 
         public void UpdatePlaceButtons(bool buttonStatus)
         {
-            for (int i = 0; i < _viewModel.Cards.Length; i++)
+            for (int i = 0; i < _viewModel.Cards.Count; i++)
             {
                 if (_viewModel.Cards[i] != null)
                 {
