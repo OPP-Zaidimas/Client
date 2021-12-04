@@ -159,14 +159,24 @@ namespace Game.Views.User_Controls
             PlayerArenaSide.ViewModel.SetCardStatus(_chosenCard.Item1, true);
         }
 
-        public void UpdatePlayerState(string heroState)
+        public void UpdatePlayerState(uint heroState)
         {
-            if(TurnLabel.IsHandleCreated)
+            if (TurnLabel.IsHandleCreated)
             {
-                void SetState() => TurnLabel.Text = heroState;
+                void SetState() => TurnLabel.Text = ConvertStateIDToText(heroState);
 
                 Invoke((MethodInvoker)SetState);
             }
+        }
+
+        private static string ConvertStateIDToText(uint id)
+        {
+            return id switch
+            {
+                1 => "Your turn",
+                2 => "Opponent's turn",
+                _ => ""
+            };
         }
 
         private static void SetUsername(ArenaSide arenaSide, string username, string heroName)

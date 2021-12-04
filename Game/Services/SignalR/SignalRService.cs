@@ -15,7 +15,7 @@ namespace Game.Services
         public event Action<int[], int[], int[], int[]> OnReceiveCardDecks;
         public event Action<bool> OnReceiveEndTurn;
         public event Action<int, int, int, int> OnReceiveHeroHPs;
-        public event Action<string> OnReceivePlayerState;
+        public event Action<uint> OnReceivePlayerState;
         public event Action CloseMatchWindow;
 
         public MatchStats MatchStats;
@@ -47,7 +47,7 @@ namespace Game.Services
                 (heroCurrentHp, heroMaxHp, opponentCurrentHp, opponentMaxHp) =>
                 OnReceiveHeroHPs?.Invoke(heroCurrentHp, heroMaxHp, opponentCurrentHp, opponentMaxHp));
 
-            _connection.On<string>(NetworkCall.ReceivePlayerState, 
+            _connection.On<uint>(NetworkCall.ReceivePlayerState, 
                 heroState => OnReceivePlayerState?.Invoke(heroState));
         }
 
