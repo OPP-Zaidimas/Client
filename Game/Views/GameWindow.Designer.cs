@@ -1,5 +1,5 @@
 ﻿
-namespace Game
+namespace Game.Views
 {
     partial class GameWindow
     {
@@ -46,7 +46,6 @@ namespace Game
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1189, 1120);
             this.Controls.Add(this.ContentPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

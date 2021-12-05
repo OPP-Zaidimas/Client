@@ -1,7 +1,6 @@
 ﻿using System.Windows.Forms;
-using Game.Views;
 
-namespace Game
+namespace Game.Views
 {
     public partial class GameWindow : Form, IGameWindow
     {

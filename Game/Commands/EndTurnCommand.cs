@@ -1,16 +1,12 @@
 ﻿using Game.Interfaces;
-using Game.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using Game.Services.SignalR;
 
 namespace Game.Commands
 {
-    class EndTurnCommand : ICommand
+    public class EndTurnCommand : ICommand
     {
-        private SignalRService service;
+        private readonly SignalRService service;
 
         public EndTurnCommand(SignalRService service)
         {

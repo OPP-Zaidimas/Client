@@ -3,7 +3,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Game.Interfaces;
 using Game.Models.Card;
-using Game.Services;
+using Game.Services.SignalR;
 using Game.ViewModels;
 
 namespace Game.Views.User_Controls

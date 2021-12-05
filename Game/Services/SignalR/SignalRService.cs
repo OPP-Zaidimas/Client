@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Game.Services.SignalR;
 using Microsoft.AspNetCore.SignalR.Client;
 
-namespace Game.Services
+namespace Game.Services.SignalR
 {
     public class SignalRService
     {

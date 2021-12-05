@@ -7,6 +7,7 @@ using Game.Models.Hero;
 using Game.Services;
 using Game.Services.AbstractFactory;
 using Game.Services.Builder;
+using Game.Services.SignalR;
 using Game.ViewModels;
 
 namespace Game.Views.User_Controls

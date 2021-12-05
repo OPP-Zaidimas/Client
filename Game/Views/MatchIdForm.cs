@@ -1,38 +1,33 @@
-﻿using Game.Services;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
-using System.Windows.Input;
+using Game.Services.SignalR;
 
-namespace Game
+namespace Game.Views
 {
     public partial class MatchIdForm : Form
     {
         private SignalRService _service;
         private string message = "Connecting...";
         private string _username;
-        public string MSG 
-        { 
-            get { return message; } 
-            set 
-            { 
+
+        public string MSG
+        {
+            get => message;
+            set
+            {
                 message = value;
                 updateLabel();
-            } 
+            }
         }
+
         private void updateLabel()
         {
             MethodInvoker labelUpdate = delegate { label1.Text = message; };
-            this.Invoke(labelUpdate);
+            Invoke(labelUpdate);
         }
-        
+
         private int id = -1;
+
         public MatchIdForm(SignalRService service)
         {
             _service = service;
@@ -46,31 +41,21 @@ namespace Game
             id = matchId;
             MSG = "Waiting for Player 2 to join. Copy the following match id";
             MethodInvoker textUpdate = delegate { MatchIdTextField.Text = "" + id; };
-            this.Invoke(textUpdate);
+            Invoke(textUpdate);
         }
 
         public static MatchIdForm ConnectedMatchIdForm(SignalRService service, string username)
         {
-            MatchIdForm matchIdForm = new MatchIdForm(service);
+            var matchIdForm = new MatchIdForm(service);
             matchIdForm._username = username;
 
             service.Connect().ContinueWith((task) =>
             {
-                if (task.Exception != null)
-                {
-                    matchIdForm.MSG = "Failed to connect.";
-                }
-                else
-                {
-                    matchIdForm.MSG = "Successfully connected.";
-                }
+                matchIdForm.MSG = task.Exception != null ? "Failed to connect." : "Successfully connected.";
             });
-            service.CreateNewGame(matchIdForm._username).ContinueWith((task)=>
+            service.CreateNewGame(matchIdForm._username).ContinueWith((task) =>
             {
-                if(task.Exception != null)
-                {
-                    matchIdForm.MSG = "Failed to get id";
-                }
+                if (task.Exception != null) matchIdForm.MSG = "Failed to get id";
             });
 
             return matchIdForm;
@@ -78,12 +63,12 @@ namespace Game
 
         public void ReceiveGameStart()
         {
-            this.Close();
+            Close();
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void CopyButton_Click(object sender, EventArgs e)
@@ -91,9 +76,6 @@ namespace Game
             Clipboard.SetText(MatchIdTextField.Text);
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void label1_Click(object sender, EventArgs e) { }
     }
 }
