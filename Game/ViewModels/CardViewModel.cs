@@ -20,6 +20,8 @@ namespace Game.ViewModels
 
         public Color? BackgroundColor { get; private set; }
 
+        public CardType Type { get; private set; }
+
         public Image CardImage { get; }
 
         public CardViewModel(ICard c)
@@ -32,11 +34,23 @@ namespace Game.ViewModels
             CurrentHp = c.Defense ?? 0;
             SelectBackgroundColor(c);
             CardImage = c.Image;
+            SelectCardType(c);
         }
 
         public void SetCurrentHp(int value)
         {
             CurrentHp = value;
+        }
+
+        private void SelectCardType(ICard c)
+        {
+            Type = c switch
+            {
+                MonsterCard => CardType.Monster,
+                HealingSpell => CardType.HealingSpellCard,
+                DamagingSpell => CardType.DamagingSpellCard,
+                _ => Type
+            };
         }
 
         private void SelectBackgroundColor(ICard c)
