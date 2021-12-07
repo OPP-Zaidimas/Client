@@ -10,6 +10,7 @@ namespace Game.Services
     {
         private readonly MonsterCardBuilder _monsterCardBuilder;
         private readonly SpellCardBuilder _spellCardBuilder;
+        private readonly ItemCardBuilder _itemCardBuilder;
 
 
         private readonly (string, string, int, int, Bitmap)[] _cardInfo =
@@ -28,6 +29,7 @@ namespace Game.Services
         {
             _monsterCardBuilder = monsterCardBuilder;
             _spellCardBuilder = spellCardBuilder;
+            _itemCardBuilder = new ItemCardBuilder();
         }
 
         public ICard CreateCard(int id)
