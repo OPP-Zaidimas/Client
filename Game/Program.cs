@@ -1,9 +1,10 @@
-using Microsoft.AspNetCore.SignalR.Client;
 using System;
 using System.Windows.Forms;
 using Game.Services;
+using Game.Services.SignalR;
+using Microsoft.AspNetCore.SignalR.Client;
 
-namespace Game.Views
+namespace Game
 {
     public static class Program
     {

@@ -51,15 +51,15 @@ namespace Game.Views.User_Controls
             this.ArenaLayoutPanel.Controls.Add(this.tableLayoutPanel1, 0, 1);
             this.ArenaLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ArenaLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.ArenaLayoutPanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.ArenaLayoutPanel.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.ArenaLayoutPanel.Name = "ArenaLayoutPanel";
-            this.ArenaLayoutPanel.Padding = new System.Windows.Forms.Padding(0, 0, 0, 12);
+            this.ArenaLayoutPanel.Padding = new System.Windows.Forms.Padding(0, 0, 0, 16);
             this.ArenaLayoutPanel.RowCount = 4;
             this.ArenaLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.ArenaLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
+            this.ArenaLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
             this.ArenaLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.ArenaLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 196F));
-            this.ArenaLayoutPanel.Size = new System.Drawing.Size(1125, 873);
+            this.ArenaLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 261F));
+            this.ArenaLayoutPanel.Size = new System.Drawing.Size(1286, 1164);
             this.ArenaLayoutPanel.TabIndex = 0;
             // 
             // PlayerArenaSide
@@ -67,10 +67,9 @@ namespace Game.Views.User_Controls
             this.PlayerArenaSide.AutoSize = true;
             this.PlayerArenaSide.Builder = null;
             this.PlayerArenaSide.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PlayerArenaSide.Location = new System.Drawing.Point(3, 352);
-            this.PlayerArenaSide.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PlayerArenaSide.Location = new System.Drawing.Point(3, 470);
             this.PlayerArenaSide.Name = "PlayerArenaSide";
-            this.PlayerArenaSide.Size = new System.Drawing.Size(1119, 310);
+            this.PlayerArenaSide.Size = new System.Drawing.Size(1280, 413);
             this.PlayerArenaSide.TabIndex = 0;
             this.PlayerArenaSide.ViewModel = null;
             // 
@@ -79,10 +78,9 @@ namespace Game.Views.User_Controls
             this.EnemyArenaSide.AutoSize = true;
             this.EnemyArenaSide.Builder = null;
             this.EnemyArenaSide.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.EnemyArenaSide.Location = new System.Drawing.Point(3, 2);
-            this.EnemyArenaSide.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.EnemyArenaSide.Location = new System.Drawing.Point(3, 3);
             this.EnemyArenaSide.Name = "EnemyArenaSide";
-            this.EnemyArenaSide.Size = new System.Drawing.Size(1119, 310);
+            this.EnemyArenaSide.Size = new System.Drawing.Size(1280, 413);
             this.EnemyArenaSide.TabIndex = 1;
             this.EnemyArenaSide.ViewModel = null;
             // 
@@ -90,28 +88,28 @@ namespace Game.Views.User_Controls
             // 
             this.HandView.AutoSize = true;
             this.HandView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.HandView.Location = new System.Drawing.Point(3, 666);
-            this.HandView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.HandView.Location = new System.Drawing.Point(3, 889);
             this.HandView.Name = "HandView";
-            this.HandView.Size = new System.Drawing.Size(1119, 193);
+            this.HandView.Size = new System.Drawing.Size(1280, 256);
             this.HandView.TabIndex = 2;
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.Controls.Add(this.EndTurnButton, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.DrawCardButton, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.TurnLabel, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.TurnLabel, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.DrawCardButton, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.EndTurnButton, 3, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 316);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 422);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1121, 32);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1282, 42);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // EndTurnButton
@@ -121,11 +119,11 @@ namespace Game.Views.User_Controls
             this.EndTurnButton.AutoSize = true;
             this.EndTurnButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.EndTurnButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.EndTurnButton.Location = new System.Drawing.Point(1029, 3);
-            this.EndTurnButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.EndTurnButton.Location = new System.Drawing.Point(1173, 4);
+            this.EndTurnButton.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.EndTurnButton.Name = "EndTurnButton";
-            this.EndTurnButton.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.EndTurnButton.Size = new System.Drawing.Size(88, 26);
+            this.EndTurnButton.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.EndTurnButton.Size = new System.Drawing.Size(104, 34);
             this.EndTurnButton.TabIndex = 4;
             this.EndTurnButton.Text = "End Turn";
             this.EndTurnButton.UseVisualStyleBackColor = true;
@@ -138,11 +136,11 @@ namespace Game.Views.User_Controls
             this.DrawCardButton.AutoSize = true;
             this.DrawCardButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.DrawCardButton.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.DrawCardButton.Location = new System.Drawing.Point(886, 3);
-            this.DrawCardButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.DrawCardButton.Location = new System.Drawing.Point(1001, 4);
+            this.DrawCardButton.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.DrawCardButton.Name = "DrawCardButton";
-            this.DrawCardButton.Padding = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.DrawCardButton.Size = new System.Drawing.Size(135, 26);
+            this.DrawCardButton.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.DrawCardButton.Size = new System.Drawing.Size(162, 34);
             this.DrawCardButton.TabIndex = 5;
             this.DrawCardButton.Text = "Draw GameCard";
             this.DrawCardButton.UseVisualStyleBackColor = true;
@@ -151,23 +149,26 @@ namespace Game.Views.User_Controls
             // 
             // TurnLabel
             // 
-            this.TurnLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.TurnLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TurnLabel.AutoSize = true;
             this.TurnLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TurnLabel.Location = new System.Drawing.Point(415, 0);
+            this.TurnLabel.Location = new System.Drawing.Point(82, 2);
+            this.TurnLabel.Margin = new System.Windows.Forms.Padding(2);
             this.TurnLabel.Name = "TurnLabel";
-            this.TurnLabel.Size = new System.Drawing.Size(51, 28);
+            this.TurnLabel.Size = new System.Drawing.Size(912, 38);
             this.TurnLabel.TabIndex = 6;
             this.TurnLabel.Text = "Turn";
+            this.TurnLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ArenaView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.ArenaLayoutPanel);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ArenaView";
-            this.Size = new System.Drawing.Size(1125, 873);
+            this.Size = new System.Drawing.Size(1286, 1164);
             this.ArenaLayoutPanel.ResumeLayout(false);
             this.ArenaLayoutPanel.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);

@@ -1,5 +1,7 @@
 ﻿using Game.Models.Hero;
 using Game.Services;
+using Game.Services.SignalR;
+using Game.Views;
 using Game.Views.User_Controls;
 
 namespace Game

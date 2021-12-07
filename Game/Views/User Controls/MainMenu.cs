@@ -5,6 +5,8 @@ using System.Windows.Forms;
 using Game.Assets;
 using Game.Interfaces;
 using Game.Models.Hero;
+using Game.Services.CommandParsing;
+using Game.Services.SignalR;
 
 namespace Game.Views.User_Controls
 {
@@ -25,6 +27,15 @@ namespace Game.Views.User_Controls
 
             _heroFactory = factory;
             _window = window;
+
+            OpenConsoleForm();
+        }
+
+        private void OpenConsoleForm()
+        {
+            var consoleWindow = new ConsoleWindow(_service, new CommandParser());
+
+            consoleWindow.Show();
         }
 
         private void NewGameButton_Click(object sender, EventArgs e)
@@ -38,7 +49,8 @@ namespace Game.Views.User_Controls
             var playerHero = _heroFactory.Create(1);
             var enemyHero = _heroFactory.Create(2);
 
-            _window.SetContent(new ArenaView(usernameInput.Text, "Bot", playerHero, enemyHero, _service, new MatchStats(1, usernameInput.Text, "Bot")));
+            _window.SetContent(new ArenaView(usernameInput.Text, "Bot", playerHero, enemyHero, _service,
+                new MatchStats(1, usernameInput.Text, "Bot")));
         }
 
         private void FindGameButton_Click(object sender, EventArgs e)
@@ -65,12 +77,12 @@ namespace Game.Views.User_Controls
             MessageBox.Show(failureMsg, Strings.GameJoinError);
         }
 
-        public void OnGameStartReceived(string opponentUsername,int matchId)
+        public void OnGameStartReceived(string opponentUsername, int matchId)
         {
             // TODO: Create Heroes using id's received from the Backend
             var playerHero = _heroFactory.Create(1);
             var enemyHero = _heroFactory.Create(2);
-            
+
             _window.SetContent(new ArenaView(usernameInput.Text, opponentUsername, playerHero, enemyHero, _service,
                 new MatchStats(matchId, usernameInput.Text, opponentUsername)));
         }

@@ -1,5 +1,5 @@
 ﻿
-namespace Game
+namespace Game.Views
 {
     partial class MatchIdForm
     {

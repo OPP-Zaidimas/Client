@@ -185,7 +185,7 @@ namespace Game.Views.User_Controls
             }
         }
 
-        private void HeroSelectButton_Click(object sender, EventArgs e) 
+        private void HeroSelectButton_Click(object sender, EventArgs e)
         {
             OnHeroSelectClicked.Invoke();
         }
