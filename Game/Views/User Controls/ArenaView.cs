@@ -61,7 +61,7 @@ namespace Game.Views.User_Controls
             _endturn = new EndTurnCommand(service);
             _drawCard = new DrawCardCommand(_deck, this.HandView);
 
-            _attackController = new AttackController(PlayerArenaSide, EnemyArenaSide);
+            _attackController = new AttackController(PlayerArenaSide, EnemyArenaSide, service);
 
             service.OnReceiveHeroHPs += UpdateHeroHPs;
             service.OnReceiveCardDecks += OnCardsUpdateReceived;
@@ -130,37 +130,18 @@ namespace Game.Views.User_Controls
 
         public void PlayerArenaSelectClicked(int id, CardView cardView)
         {
-            _chosenCard = (id, cardView);
-            if (EnemyArenaSide.CanAttackHero)
-            {
-                EnemyArenaSide.EnableHeroSelection();
-            }
-            else
-            {
-                EnemyArenaSide.ChangeCardsSelectionStatus(true);
-            }
+            _attackController.AttackingMonsterSelect(id, cardView);
         }
 
         public void HeroSelectClicked()
         {
-            if (_chosenCard.Item2 != null)
-            {
-                _service.AttackOnHero((int)_chosenCard.Item2.ViewModel.Attack);
-            }
-
-            EnemyArenaSide.DisableHeroSelection();
+            _attackController.HeroAttack();
         }
 
         public void EnemyArenaSelectClicked(int id, CardView cardView)
         {
-            //send indices and hps to server
-            if (_chosenCard.Item2 != null)
-                _service.MonsterAttack(_chosenCard.Item1, (int)_chosenCard.Item2.ViewModel.Attack, id,
-                    cardView.ViewModel.CurrentHp);
-            //disable enemyarenaside cards
-            EnemyArenaSide.ChangeCardsSelectionStatus(false);
-            //disable attacker
-            PlayerArenaSide.ViewModel.SetCardStatus(_chosenCard.Item1, true);
+            _attackController.DefendingMonsterSelect(id, cardView);
+            _attackController.MonsterAttack();
         }
 
         public void UpdatePlayerState(uint heroState)
