@@ -61,7 +61,7 @@ namespace Game.Services
             else
             {
                 _enemyArenaSide.ChangeCardsSelectionStatus(true);
-            }
+        }
         }
 
         public void DefendingMonsterSelect(int id, CardView card)
