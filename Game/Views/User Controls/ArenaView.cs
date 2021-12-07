@@ -27,6 +27,8 @@ namespace Game.Views.User_Controls
         private (int, CardView) _chosenCard;
         private SignalRService _service;
 
+        private AttackController _attackController;
+
         public ArenaView()
         {
             InitializeComponent();
@@ -58,6 +60,8 @@ namespace Game.Views.User_Controls
 
             _endturn = new EndTurnCommand(service);
             _drawCard = new DrawCardCommand(_deck, this.HandView);
+
+            _attackController = new AttackController(PlayerArenaSide, EnemyArenaSide);
 
             service.OnReceiveHeroHPs += UpdateHeroHPs;
             service.OnReceiveCardDecks += OnCardsUpdateReceived;
