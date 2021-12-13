@@ -1,19 +1,15 @@
 ﻿using Game.Views.User_Controls;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Game.Services.SignalR;
 
 namespace Game.Services
 {
     public class AttackController
     {
-        private ArenaSide _playerArenaSide;
-        private ArenaSide _enemyArenaSide;
+        private readonly ArenaSide _playerArenaSide;
+        private readonly ArenaSide _enemyArenaSide;
         private (int, CardView) _attacker;
         private (int, CardView) _defender;
-        private SignalRService _service;
+        private readonly SignalRService _service;
 
         public AttackController(ArenaSide playerSide, ArenaSide enemySide, SignalRService service)
         {
@@ -26,20 +22,22 @@ namespace Game.Services
 
         public void HeroAttack()
         {
-            if(IsAttackerNotNull())
+            if (IsAttackerNotNull())
             {
                 SendHeroAttackMessageToServer();
             }
+
             ChangeHeroSelectionStatus(false);
             ResetAttackerAndDeffender();
         }
 
         public void MonsterAttack()
         {
-            if(IsAttackerAndDeffenderNotNull())
+            if (IsAttackerAndDeffenderNotNull())
             {
                 SendMonsterAttackMessageToServer();
             }
+
             DisableEnemyMonsterSelection();
             MarkAsAttackedAlready();
             ResetAttackerAndDeffender();
@@ -54,20 +52,19 @@ namespace Game.Services
         public void AttackingMonsterSelect(int id, CardView card)
         {
             _attacker = (id, card);
-            if(_enemyArenaSide.CanAttackHero)
+            if (_enemyArenaSide.CanAttackHero)
             {
                 ChangeHeroSelectionStatus(true);
             }
             else
             {
                 _enemyArenaSide.ChangeCardsSelectionStatus(true);
-        }
+            }
         }
 
         public void DefendingMonsterSelect(int id, CardView card)
         {
             _defender = (id, card);
-
         }
 
         public bool IsAttackerNotNull()
@@ -78,24 +75,27 @@ namespace Game.Services
         public bool IsAttackerAndDeffenderNotNull()
         {
             return _attacker.Item1 != -1 && _attacker.Item2 != null
-                && _defender.Item1 != -1 && _defender.Item2 != null;
+                                         && _defender.Item1 != -1 && _defender.Item2 != null;
         }
 
         public async void SendMonsterAttackMessageToServer()
         {
             await _service.MonsterAttack(_attacker.Item1, (int)
-                _attacker.Item2.ViewModel.Attack, 
+                _attacker.Item2.ViewModel.Attack,
                 _defender.Item1,
                 _defender.Item2.ViewModel.CurrentHp);
         }
+
         public void DisableEnemyMonsterSelection()
         {
             _enemyArenaSide.ChangeCardsSelectionStatus(false);
         }
+
         public void MarkAsAttackedAlready()
         {
             _playerArenaSide.ViewModel.SetCardStatus(_attacker.Item1, true);
         }
+
         public async void SendHeroAttackMessageToServer()
         {
             await _service.AttackOnHero((int)_attacker.Item2.ViewModel.Attack);
@@ -103,11 +103,12 @@ namespace Game.Services
 
         public void ChangeHeroSelectionStatus(bool status)
         {
-            if(status)
+            if (status)
             {
                 _enemyArenaSide.EnableHeroSelection();
                 return;
             }
+
             _enemyArenaSide.DisableHeroSelection();
         }
     }

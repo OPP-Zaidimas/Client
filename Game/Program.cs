@@ -8,7 +8,8 @@ namespace Game
 {
     public static class Program
     {
-        private const string ConnectionUrl = "http://localhost:5000/msihub";
+        // private const string ConnectionUrl = "http://localhost:5000/msihub";
+        private const string ConnectionUrl = @"https://monsters-spells-items.herokuapp.com/msihub";
 
         [STAThread]
         private static void Main()
