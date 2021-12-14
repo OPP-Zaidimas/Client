@@ -19,6 +19,8 @@ namespace Game.Services.SignalR
 
         public MatchStats MatchStats;
 
+        private bool _isConnected = false;
+
         public SignalRService(HubConnection connection)
         {
             _connection = connection;
@@ -30,29 +32,33 @@ namespace Game.Services.SignalR
                 failureMsg => OnGameJoinFailureReceived?.Invoke(failureMsg));
 
             _connection.On<string, int>(NetworkCall.StartGame,
-                (opponentUsername, matchId) => 
-                { 
+                (opponentUsername, matchId) =>
+                {
                     OnGameStartSignalReceived?.Invoke(opponentUsername, matchId);
                     CloseMatchWindow.Invoke();
                 });
 
             _connection.On<int[], int[], int[], int[]>(NetworkCall.ReceiveCardDecks,
-                (heroCards, heroHPs, opponentCards, opponentHPs) => 
-                OnReceiveCardDecks?.Invoke(heroCards, heroHPs, opponentCards,opponentHPs));
+                (heroCards, heroHPs, opponentCards, opponentHPs) =>
+                    OnReceiveCardDecks?.Invoke(heroCards, heroHPs, opponentCards, opponentHPs));
 
             _connection.On<bool>(NetworkCall.ReceiveEndTurn, buttonStatus => OnReceiveEndTurn.Invoke(buttonStatus));
 
-            _connection.On<int, int, int, int>(NetworkCall.ReceiveHeroHPs, 
+            _connection.On<int, int, int, int>(NetworkCall.ReceiveHeroHPs,
                 (heroCurrentHp, heroMaxHp, opponentCurrentHp, opponentMaxHp) =>
-                OnReceiveHeroHPs?.Invoke(heroCurrentHp, heroMaxHp, opponentCurrentHp, opponentMaxHp));
+                    OnReceiveHeroHPs?.Invoke(heroCurrentHp, heroMaxHp, opponentCurrentHp, opponentMaxHp));
 
-            _connection.On<uint>(NetworkCall.ReceivePlayerState, 
+            _connection.On<uint>(NetworkCall.ReceivePlayerState,
                 heroState => OnReceivePlayerState?.Invoke(heroState));
         }
 
         public async Task Connect()
         {
-            await _connection.StartAsync();
+            if (!_isConnected)
+            {
+                await _connection.StartAsync();
+                _isConnected = true;
+            }
         }
 
         public async Task CreateNewGame(string username)
@@ -96,11 +102,12 @@ namespace Game.Services.SignalR
         {
             MatchStats = stats;
         }
+
         public async Task AttackOnHero(int attackerOffense)
         {
-            await _connection.SendAsync(NetworkCall.AttackOnHero, 
-                MatchStats.GetMatchId(), 
-                MatchStats.GetEnemyUsername(), 
+            await _connection.SendAsync(NetworkCall.AttackOnHero,
+                MatchStats.GetMatchId(),
+                MatchStats.GetEnemyUsername(),
                 attackerOffense);
         }
     }
